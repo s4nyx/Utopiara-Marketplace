@@ -15,7 +15,7 @@ export default function Partner() {
   return (
     <div className="relative min-h-screen w-full py-16" ref={component}>
       <div className="absolute inset-0 bg-primary "></div>
-      <div className="relative z-10 mx-auto flex h-full w-[80%] flex-col items-center justify-between">
+      <div className="relative z-10 mx-auto flex h-full lg:w-[80%] max-lg:w-1/2 flex-col items-center justify-between">
         <h1 className="lg:animate-partner group absolute z-10 text-center font-bold text-white max-lg:left-0 max-lg:top-12  max-lg:text-2xl lg:left-12 lg:top-64 lg:text-[48px]">
           <span className="text-secondary  group-hover:drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
             CREATE
@@ -34,7 +34,10 @@ export default function Partner() {
 
         <div className="flex w-full flex-1 flex-col items-center justify-between gap-4">
           {/* First Row */}
-          <div className="grid w-full grid-cols-4 gap-8" ref={imagesComponent}>
+          <div
+            className="grid w-full lg:grid-cols-4 max-lg:grid-rows-3 lg:gap-8 max-lg:gap-2"
+            ref={imagesComponent}
+          >
             <div className="col-span-1"></div>
             <div className="lg:animate-image group col-span-1  aspect-[5/6] overflow-hidden rounded-lg border-[1px] border-secondary">
               <Image
@@ -45,7 +48,7 @@ export default function Partner() {
                 className="h-full w-full transform rounded-lg  object-cover transition-all duration-500 group-hover:scale-110"
               />
             </div>
-            <div className="col-span-1"></div>
+            <div className="col-span-1 max-lg:hidden"></div>
             <div className="lg:animate-image group col-span-1  aspect-[5/6] overflow-hidden rounded-lg border-[1px] border-secondary">
               <Image
                 src="/images/5.webp"
@@ -58,7 +61,10 @@ export default function Partner() {
           </div>
 
           {/* Second Row */}
-          <div className="grid w-full grid-cols-4 gap-8" ref={imagesComponent}>
+          <div
+            className="grid w-full lg:grid-cols-4 max-lg:grid-rows-4 lg:gap-8 max-lg:gap-2"
+            ref={imagesComponent}
+          >
             <div className="lg:animate-image group col-span-1  aspect-[5/6] overflow-hidden rounded-lg border-[1px] border-secondary">
               <Image
                 src="/images/6.webp"
@@ -68,7 +74,7 @@ export default function Partner() {
                 className="h-full w-full transform object-cover transition-all duration-500 group-hover:scale-110"
               />
             </div>
-            <div className="col-span-1 flex items-center justify-center p-4 max-lg:hidden">
+            <div className="col-span-1 flex items-center justify-center p-4 ">
               <p className="animate-partner text-center text-base font-medium leading-relaxed text-white lg:text-lg">
                 Empower your creativity by minting and selling your unique NFTs
                 on our platform. Be an NFT creator!

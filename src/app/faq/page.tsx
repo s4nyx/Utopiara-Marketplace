@@ -6,11 +6,11 @@ export default function faq() {
   return (
     <>
       <Navbar />
-      <div className="mx-auto flex min-h-screen w-screen flex-col items-center justify-center bg-primary pt-36">
+      <div className="mx-auto flex min-h-screen w-screen flex-col items-center justify-center bg-primary pt-0">
         <div className="mb-8 text-6xl text-white drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
           FAQ
         </div>
-        <section className="w-1/2 divide-y divide-slate-200 rounded bg-fourth shadow-md shadow-slate-200">
+        <section className="lg:w-1/2 max-lg:w-[90%] divide-y divide-slate-200 rounded bg-fourth shadow-md shadow-slate-200">
           <details className="group p-4">
             <summary className="relative flex cursor-pointer list-none gap-4 pr-8 font-medium text-white transition-colors duration-300 focus:text-secondary focus-visible:outline-none group-hover:text-secondary  [&::-webkit-details-marker]:hidden">
               <svg

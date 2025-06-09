@@ -128,9 +128,9 @@ export default function Browse() {
       <div className="absolute right-24 top-40 h-32 w-32 border-2 border-fourth"></div>
       <div className="absolute right-32 top-20 h-32 w-32 border-2 border-fourth"></div>
 
-      <div className="absolute bottom-24 right-20 h-52 w-52 border-2 border-fourth"></div>
+      {/* <div className="absolute bottom-24 right-20 h-52 w-52 border-2 border-fourth"></div>
       <div className="absolute bottom-40 right-36 h-44 w-44 border-2 border-fourth"></div>
-      <div className="absolute bottom-20 right-44 h-44 w-44 border-2 border-fourth"></div>
+      <div className="absolute bottom-20 right-44 h-44 w-44 border-2 border-fourth"></div> */}
 
       <div className="absolute inset-0 -z-10 bg-primary"></div>
       <div className="z-10 mb-16 max-w-2xl text-center">

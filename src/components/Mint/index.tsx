@@ -4,7 +4,7 @@ import React from "react";
 export default function Mint() {
   return (
     <div className="mx-auto  w-screen bg-primary py-12">
-      <div className="w-[80%] text-secondary mx-auto flex flex-col justify-start items-start gap-4">
+      <div className="w-[80%]  text-secondary mx-auto flex flex-col justify-start items-start gap-4">
         <h1 className="text-3xl">
           Let&apos;s create a smart contract for your drop.
         </h1>

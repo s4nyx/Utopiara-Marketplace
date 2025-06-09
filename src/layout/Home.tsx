@@ -13,7 +13,7 @@ export default function HomePage() {
       ref={component}
     >
       <div className="absolute right-0 h-screen scale-x-[-1] bg-[url('/images/background.webp')] bg-cover bg-center max-lg:w-full lg:w-[70%] " />
-      <div className="absolute right-0 h-screen bg-gradient-to-r from-[#0d1b25] via-transparent to-[#0d1b25] max-lg:w-full lg:w-[71%]" />
+      <div className="absolute right-0 h-screen bg-gradient-to-r from-[#000000] via-transparent to-[#0d1b25c2] max-lg:w-full lg:w-[71%] z-10" />
       <div className="absolute left-8 top-20 h-40 w-40 border-2 border-fourth max-lg:hidden"></div>
       <div className="absolute left-24 top-36 h-32 w-32 border-2 border-fourth max-lg:hidden"></div>
       <div className="absolute left-32 top-16 h-32 w-32 border-2 border-fourth max-lg:hidden"></div>

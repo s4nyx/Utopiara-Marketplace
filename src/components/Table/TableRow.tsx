@@ -85,12 +85,12 @@ export default function TableRow({
       >
         {collection}
       </div>
-      <div className="basis-[10%]">{volume}</div>
-      <div className="basis-[10%]">{change}</div>
+      <div className="basis-[10%] max-lg:hidden">{volume}</div>
+      <div className="basis-[10%] max-lg:hidden">{change}</div>
       <div className="basis-[10%]">{floor_price}</div>
-      <div className="basis-[10%]">{sales}</div>
-      <div className="basis-[10%]">{unique_owners}</div>
-      <div className="basis-[10%]">{items_listed}</div>
+      <div className="basis-[10%] max-lg:hidden">{sales}</div>
+      <div className="basis-[10%] max-lg:hidden">{unique_owners}</div>
+      <div className="basis-[10%] max-lg:hidden">{items_listed}</div>
     </div>
   );
 }

@@ -45,7 +45,7 @@ export default function Invest() {
       <div className="absolute inset-0 bg-primary opacity-90"></div>
 
       {/* Main Content */}
-      <div className="relative z-10 mx-auto w-[90%] max-w-7xl">
+      <div className="relative z-10 mx-auto lg:w-[90%] max-lg:w-[80%] max-w-7xl">
         {/* Title */}
         <h1
           className="animate-title mb-12 text-center text-4xl font-bold tracking-wide max-lg:text-2xl lg:text-5xl"
