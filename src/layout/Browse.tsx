@@ -65,7 +65,7 @@ export default function Browse() {
           aria-hidden="true"
         >
           <rect height="24" width="24" rx="8" fill="white" />
-          <g clip-path="url(#HuobiGlobalBadge_a)">
+          <g clipPath="url(#HuobiGlobalBadge_a)">
             <path
               d="M13.5001 8.52126C13.5001 6.22545 12.3934 4.24753 11.5457 3.59999C11.5457 3.59999 11.4868 3.56467 11.4868 3.65886C11.4162 8.09742 9.16746 9.31007 7.91949 10.923C5.05856 14.667 7.71934 18.7641 10.4272 19.5176C11.946 19.9414 10.074 18.7641 9.83854 16.2917C9.55598 13.2895 13.5001 11.0054 13.5001 8.52126"
               className="fill-[#282E5B]"
