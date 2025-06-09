@@ -1,6 +1,27 @@
-import React from "react";
+"use client";
+import { updateProfile } from "@/lib/api/auth";
+import React, { useState } from "react";
 
 export default function Profile() {
+  const [name, setName] = useState<string>("");
+  const [bio, setBio] = useState<string>("");
+  const [url, setURL] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [avatar, setAvatar] = useState<string>("");
+  const [banner, setBanner] = useState<string>("");
+
+  const handleSubmit = async () => {
+    const data = await updateProfile({
+      username: name,
+      email: email,
+      userAvatar: avatar,
+      bio: bio,
+      urls: [url],
+      walletAddresses: ["dfs"],
+    });
+    console.log("data", data);
+  };
+
   return (
     <div className="mx-auto  w-screen bg-primary py-12">
       <div className="w-[80%] mx-auto flex flex-col justify-start items-start gap-4">
@@ -55,6 +76,8 @@ export default function Profile() {
           <input
             className="w-full border-secondary outline-none rounded-md border-[1px] px-2 py-1"
             placeholder="Add username"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           ></input>
           <p className="text-sm">This is your public username.</p>
         </div>
@@ -63,6 +86,8 @@ export default function Profile() {
           <input
             className="w-full border-secondary outline-none rounded-md border-[1px] px-2 pt-1 pb-12"
             placeholder="Add a bio"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
           ></input>
         </div>
         <div className="flex text-secondary w-full flex-col gap-2 items-start justify-start">
@@ -70,6 +95,8 @@ export default function Profile() {
           <input
             className="w-full border-secondary outline-none rounded-md border-[1px] px-2 py-1"
             placeholder="Add a URL"
+            value={url}
+            onChange={(e) => setURL(e.target.value)}
           ></input>
           <p className="text-sm">
             Add a link to your website or social profile.
@@ -80,7 +107,10 @@ export default function Profile() {
           <input className="w-full border-secondary outline-none rounded-md border-[1px] px-2 py-1"></input>
         </div>
         <div className="flex justify-end w-full">
-          <button className="rounded-lg bg-secondary px-4 py-1 text-lg text-primary">
+          <button
+            onClick={handleSubmit}
+            className="rounded-lg bg-secondary px-4 py-1 text-lg text-primary"
+          >
             Save
           </button>
         </div>

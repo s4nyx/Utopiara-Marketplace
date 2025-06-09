@@ -1,7 +1,8 @@
 "use client";
+import { login } from "@/lib/api/auth";
 // eslint-disable-next-line no-restricted-imports
 import Checkbox from "../Checkbox";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface LoginProps {
   isShowing: boolean;
@@ -14,6 +15,8 @@ export default function Login({
   setIsShowing,
   setIsShowing1,
 }: LoginProps) {
+  const [email, setEmail] = useState<string>("");
+  const [pwd, setPwd] = useState<string>("");
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -85,9 +88,15 @@ export default function Login({
     }
   }, [isShowing]);
 
+  const handleSubmit = async () => {
+    const data = await login({ email, password: pwd });
+    console.log("data", data);
+    // localStorage.setItem('token', data.token);
+  };
+
   return (
     <div
-      className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-[#00000011] backdrop-blur-lg"
+      className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-[#000000b7] backdrop-blur-lg"
       aria-labelledby="header-4a content-4a"
       aria-modal="true"
       tabIndex={-1}
@@ -143,7 +152,9 @@ export default function Login({
                 id="id-b03"
                 type="email"
                 name="id-b03"
-                placeholder="your name"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="your email"
                 className="peer relative h-10 w-full rounded border border-slate-200 px-4 text-sm text-white placeholder-transparent outline-none transition-all autofill:bg-primary invalid:border-pink-500 invalid:text-pink-500 focus:border-secondary focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
               />
               <label
@@ -162,6 +173,8 @@ export default function Login({
                 id="id-b13"
                 type="password"
                 name="id-b13"
+                value={pwd}
+                onChange={(e) => setPwd(e.target.value)}
                 placeholder="your password"
                 className="peer relative h-10 w-full rounded border border-slate-200 px-4 pr-12 text-sm text-white placeholder-transparent outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-secondary focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
               />
@@ -197,7 +210,10 @@ export default function Login({
         </div>
         {/*        <!-- Modal actions --> */}
         <div className="flex justify-center gap-2">
-          <button className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none">
+          <button
+            onClick={handleSubmit}
+            className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none"
+          >
             <span>Login</span>
           </button>
         </div>

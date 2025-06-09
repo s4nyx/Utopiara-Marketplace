@@ -14,7 +14,7 @@ export default function Table() {
         <div className="basis-[10%]">Unique owners</div>
         <div className="basis-[10%]">Items listed</div>
       </div>
-      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 1, 1, 1].map((index) => (
+      {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13].map((index) => (
         <TableRow
           key={index}
           index={index}

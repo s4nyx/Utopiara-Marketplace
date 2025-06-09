@@ -1,6 +1,7 @@
 "use client";
+import { register } from "@/lib/api/auth";
 import Checkbox from "../Checkbox";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 interface RegisterProps {
   isShowing: boolean;
@@ -13,6 +14,9 @@ export default function Register({
   setIsShowing,
   setIsShowing1,
 }: RegisterProps) {
+  const [name, setName] = useState<string>("");
+  const [email, setEmail] = useState<string>("");
+  const [pwd, setPwd] = useState<string>("");
   const wrapperRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -84,9 +88,19 @@ export default function Register({
     }
   }, [isShowing, setIsShowing]);
 
+  const handleSubmit = async () => {
+    const response = await register({
+      email: email,
+      password: pwd,
+      username: name,
+    });
+    console.log("response", response.token);
+    localStorage.setItem("token", response.token);
+  };
+
   return (
     <div
-      className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-slate-300/20 backdrop-blur-lg"
+      className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-[#000000b7] backdrop-blur-lg"
       aria-labelledby="header-4a content-4a"
       aria-modal="true"
       tabIndex={-1}
@@ -101,7 +115,7 @@ export default function Register({
       >
         {/*        <!-- Modal header --> */}
         <header id="header-4a" className="flex items-start justify-between">
-          <h3 className="mb-10 flex-1 text-2xl font-medium text-white">
+          <h3 className="mb-4 flex-1 text-2xl font-medium text-white">
             Welcome back!
           </h3>
           <button
@@ -140,9 +154,32 @@ export default function Register({
             <div className="relative">
               <input
                 id="id-b03"
+                name="id-b03"
+                type="text"
+                placeholder="your name"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="peer relative h-10 w-full rounded border border-slate-200 px-4 text-sm text-white placeholder-transparent outline-none transition-all autofill:bg-primary invalid:border-pink-500 invalid:text-pink-500 focus:border-secondary focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+              />
+              <label
+                htmlFor="id-b03"
+                className="absolute -top-2 left-2 z-[1] px-2 text-xs text-slate-400 transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-none before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-secondary peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
+              >
+                Your name
+              </label>
+              <small className="absolute flex w-full justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500">
+                <span>Type your user name</span>
+              </small>
+            </div>
+            {/*                <!-- Input field --> */}
+            <div className="relative">
+              <input
+                id="id-b03"
                 type="email"
                 name="id-b03"
-                placeholder="your name"
+                placeholder="your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 className="peer relative h-10 w-full rounded border border-slate-200 px-4 text-sm text-white placeholder-transparent outline-none transition-all autofill:bg-primary invalid:border-pink-500 invalid:text-pink-500 focus:border-secondary focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
               />
               <label
@@ -156,12 +193,14 @@ export default function Register({
               </small>
             </div>
             {/*                <!-- Input field --> */}
-            <div className="relative my-6">
+            <div className="relative mt-6">
               <input
                 id="id-b13"
                 type="password"
                 name="id-b13"
                 placeholder="your password"
+                value={pwd}
+                onChange={(e) => setPwd(e.target.value)}
                 className="peer relative h-10 w-full rounded border border-slate-200 px-4 pr-12 text-sm text-white placeholder-transparent outline-none transition-all autofill:bg-white invalid:border-pink-500 invalid:text-pink-500 focus:border-secondary focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
               />
               <label
@@ -188,7 +227,7 @@ export default function Register({
                 <span>Type your password</span>
               </small>
             </div>
-            <div className="relative my-6">
+            <div className="relative mb-6">
               <input
                 id="id-b13"
                 type="password"
@@ -225,7 +264,10 @@ export default function Register({
         </div>
         {/*        <!-- Modal actions --> */}
         <div className="flex justify-center gap-2">
-          <button className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none">
+          <button
+            onClick={handleSubmit}
+            className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none"
+          >
             <span>Sign Up</span>
           </button>
         </div>
