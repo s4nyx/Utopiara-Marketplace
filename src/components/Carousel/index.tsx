@@ -48,9 +48,12 @@ export default function Carousel() {
         {/*    <!-- Slides --> */}
         <div className=" overflow-y-visible" data-glide-el="track">
           <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full  overflow-y-visible p-0">
-            {images.map((image: string) => (
+            {images.map((image: string, index: number) => (
               // eslint-disable-next-line react/jsx-key
-              <li className="group flex flex-col items-center justify-between">
+              <li
+                key={index}
+                className="group flex flex-col items-center justify-between"
+              >
                 <img
                   src={image}
                   className="m-auto w-full max-w-full select-none border-[1px] border-secondary object-cover duration-700 group-hover:scale-125 group-hover:border-[1px]  max-lg:h-[200px] lg:h-[450px]"
