@@ -8,11 +8,17 @@ export default function Top() {
   const component = useScrollAnimation(".animate-top");
 
   return (
-    <section id="top" className="relative h-screen w-full" ref={component}>
-      <div className="absolute inset-0 bg-primary "></div>
+    <section
+      id="top"
+      className="relative h-screen bg-cover bg-center bg-[url('/webp/background/back_1.webp')] bg-opacity-50 w-full"
+      ref={component}
+    >
+      <div className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-primary via-transparent to-[#0d1b2500]" />
+      <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-primary via-transparent to-[#0d1b2500]" />
+      <div className="absolute inset-0 bg-primary/95 "></div>
       <div className="relative z-10 mx-auto flex w-[70%] flex-col items-center justify-between text-white">
         <div className="animate-top mt-32 basis-[30%]">
-          <h1 className="font-bold max-lg:text-2xl lg:text-[36px]">
+          <h1 className="font-bold max-lg:text-2xl lg:text-[40px]">
             TOP
             <span className="ml-8 font-bold text-secondary">COLLECTIONS</span>
           </h1>
