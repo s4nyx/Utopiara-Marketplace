@@ -71,16 +71,11 @@ export default function HomePage() {
       <div className="absolute left-24 top-36 h-32 w-32 border-2 border-[#061c33] max-lg:hidden"></div>
       <div className="absolute left-32 top-16 h-32 w-32 border-2 border-[#061c33] max-lg:hidden"></div>
 
-      {/* <div className="absolute left-[352px] top-50 h-20 w-20 border-2 border-[#061c33] max-lg:hidden"></div>
-      <div className="absolute left-[396px] top-66 h-12 w-12 border-2 border-[#061c33] max-lg:hidden"></div>
-      <div className="absolute left-[408px] top-60 h-12 w-12 border-2 border-[#061c33] max-lg:hidden"></div> */}
-
       <div className="absolute left-36 bottom-40 h-32 w-32 border-2 border-[#061c33] max-lg:hidden"></div>
       <div className="absolute left-52 bottom-56 h-24 w-24 border-2 border-[#061c33] max-lg:hidden"></div>
       <div className="absolute left-60 bottom-36 h-24 w-24 border-2 border-[#061c33] max-lg:hidden"></div>
 
-      {/* <div className="absolute top-0 h-screen w-full bg-gradient-to-b from-[#112331] via-transparent to-[#112331]"></div> */}
-      <div className="z-30 mx-auto w-[95%] pt-80 text-white">
+      <div className="z-30 mx-auto w-[95%] absolute bottom-[20vh] text-white">
         <div className="animate-home rounded-[32px] bg-opacity-70 bg-none max-lg:w-[70%] max-lg:p-4 lg:w-[35%] lg:p-12">
           <h1 className="text-2xl max-lg:text-sm max-lg:mt-40">
             Your guide to the NFT world!

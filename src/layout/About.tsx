@@ -35,49 +35,49 @@ export default function About() {
         </div>
         <div
           className="mt-80 flex basis-[70%] flex-row items-center justify-between space-x-2 max-lg:hidden"
-          ref={imagesComponent}
+          // ref={imagesComponent}
         >
           <Image
             src="/images/1.webp"
             alt="building1"
             width={160}
             height={300}
-            className="animate-image z-0 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clipPath:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clipPath:inset(0_0_0_0)]"
+            className="animate-image z-0 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clip-path:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clip-path:inset(0_0_0_0)]"
           />
           <Image
             src="/images/2.webp"
             alt="building1"
             width={160}
             height={300}
-            className="animate-image z-0 mb-72 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clipPath:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clipPath:inset(0_0_0_0)]"
+            className="animate-image z-0 mb-72 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clip-path:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clip-path:inset(0_0_0_0)]"
           />
           <Image
             src="/images/6.webp"
             alt="building1"
             width={160}
             height={300}
-            className="animate-image z-0 mb-40 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clipPath:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clipPath:inset(0_0_0_0)]"
+            className="animate-image z-0 mb-40 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clip-path:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clip-path:inset(0_0_0_0)]"
           />
           <Image
             src="/images/4.webp"
             alt="building1"
             width={160}
             height={300}
-            className="animate-image z-0 mb-80 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clipPath:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clipPath:inset(0_0_0_0)]"
+            className="animate-image z-0 mb-80 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clip-path:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clip-path:inset(0_0_0_0)]"
           />
           <Image
             src="/images/3.webp"
             alt="building1"
             width={160}
             height={300}
-            className="animate-image z-0 mb-36 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clipPath:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clipPath:inset(0_0_0_0)]"
+            className="animate-image z-0 mb-36 scale-[200%] border border-cyan-200 object-cover outline-2  transition-all duration-700 [clip-path:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clip-path:inset(0_0_0_0)]"
           />
           <Image
             src="/images/5.webp"
             alt="building1"
             width={160}
             height={300}
-            className="animate-image z-0 mb-48 scale-[200%] border border-cyan-200 object-cover transition-all duration-700 [clipPath:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clipPath:inset(0_0_0_0)]"
+            className="animate-image z-0 mb-48 scale-[200%] border border-cyan-200 object-cover transition-all duration-700 [clip-path:inset(0_25%_0_25%)] hover:z-10 hover:blur-none hover:[clip-path:inset(0_0_0_0)]"
           />
         </div>
       </div>
