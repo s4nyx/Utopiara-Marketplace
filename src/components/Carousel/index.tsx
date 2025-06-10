@@ -43,13 +43,13 @@ export default function Carousel() {
 
   return (
     <>
-      {/*<!-- Component: Carousel with controls outside --> */}
-      <div className="glide-04 relative mt-16 w-full">
-        {/*    <!-- Slides --> */}
-        <div className=" overflow-y-visible" data-glide-el="track">
-          <ul className="whitespace-no-wrap flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full  overflow-y-visible p-0">
+      <div className="glide-04 max-w-screen relative mt-16 w-full">
+        <div
+          className=" overflow-y-visible overflow-x-hidden"
+          data-glide-el="track"
+        >
+          <ul className="whitespace-no-wrap overflow-hidden flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full  overflow-y-visible p-0">
             {images.map((image: string, index: number) => (
-              // eslint-disable-next-line react/jsx-key
               <li
                 key={index}
                 className="group flex flex-col items-center justify-between"
@@ -58,12 +58,10 @@ export default function Carousel() {
                   src={image}
                   className="m-auto w-full max-w-full select-none border-[1px] border-secondary object-cover duration-700 group-hover:scale-125 group-hover:border-[1px]  max-lg:h-[200px] lg:h-[450px]"
                 />
-                {/* <Button className="box  mt-20 opacity-0 duration-700 group-hover:block group-hover:opacity-100" /> */}
               </li>
             ))}
           </ul>
         </div>
-        {/*    <!-- Controls --> */}
         <div
           className="lg:animate-top mt-20 flex w-full items-center justify-center gap-2 p-4"
           data-glide-el="controls"
@@ -116,7 +114,6 @@ export default function Carousel() {
           </span>
         </div>
       </div>
-      {/*<!-- End Carousel with controls outside --> */}
     </>
   );
 }
