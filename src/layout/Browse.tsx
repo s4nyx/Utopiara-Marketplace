@@ -112,7 +112,7 @@ export default function Browse() {
 
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-24 bg-cover bg-center bg-[url('/webp/background/back_4.webp')] bg-opacity-70">
-      <div className="absolute left-8 top-20 h-40 w-40 border-2 border-fifth"></div>
+      {/* <div className="absolute left-8 top-20 h-40 w-40 border-2 border-fifth"></div>
       <div className="absolute left-24 top-36 h-32 w-32 border-2 border-fifth"></div>
       <div className="absolute left-32 top-16 h-32 w-32 border-2 border-fifth"></div>
 
@@ -122,7 +122,7 @@ export default function Browse() {
 
       <div className="absolute right-8 top-24 h-40 w-40 border-2 border-fifth"></div>
       <div className="absolute right-24 top-40 h-32 w-32 border-2 border-fifth"></div>
-      <div className="absolute right-32 top-20 h-32 w-32 border-2 border-fifth"></div>
+      <div className="absolute right-32 top-20 h-32 w-32 border-2 border-fifth"></div> */}
 
       <div className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-primary via-transparent to-[#0d1b2500]" />
       <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-primary via-transparent to-[#0d1b2500]" />
