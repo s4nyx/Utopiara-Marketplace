@@ -63,52 +63,54 @@ export default function Carousel() {
           </ul>
         </div>
         <div
-          className="lg:animate-top mt-20 flex w-full items-center justify-center gap-2 p-4"
+          className="lg:animate-top mt-20 flex w-full lg:flex-row max-lg:flex-col items-center justify-center lg:gap-2 max-lg:gap-8 p-4"
           data-glide-el="controls"
         >
-          <button
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-secondary text-slate-700 transition duration-300 hover:border-slate-900 hover:text-white focus-visible:outline-none lg:h-12 lg:w-12"
-            data-glide-dir="<"
-            aria-label="prev slide"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-8 w-8 text-4xl "
+          <div className="flex gap-2">
+            <button
+              className="inline-flex max-lg:h-12 max-lg:w-12 items-center justify-center rounded-full border border-slate-700 bg-secondary text-slate-700 transition duration-300 hover:border-slate-900 hover:text-white focus-visible:outline-none lg:h-12 lg:w-12"
+              data-glide-dir="<"
+              aria-label="prev slide"
             >
-              <title>prev slide</title>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="h-8 w-8 text-4xl "
+              >
+                <title>prev slide</title>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
+                />
+              </svg>
+            </button>
 
-          <button
-            className="inline-flex h-8 w-8 items-center justify-center rounded-full border border-slate-700 bg-secondary text-slate-700 transition duration-300 hover:border-slate-900 hover:text-white focus-visible:outline-none lg:h-12 lg:w-12"
-            data-glide-dir=">"
-            aria-label="next slide"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="h-8 w-8"
+            <button
+              className="inline-flex max-lg:h-12 max-lg:w-12 items-center justify-center rounded-full border border-slate-700 bg-secondary text-slate-700 transition duration-300 hover:border-slate-900 hover:text-white focus-visible:outline-none lg:h-12 lg:w-12"
+              data-glide-dir=">"
+              aria-label="next slide"
             >
-              <title>next slide</title>
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-              />
-            </svg>
-          </button>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="h-8 w-8"
+              >
+                <title>next slide</title>
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
+                />
+              </svg>
+            </button>
+          </div>
           <span className="  z-10 text-white opacity-100 max-lg:text-xl lg:text-[36px]">
             BIO-CODE &ldquo;BESTIA&rdquo;
           </span>

@@ -14,7 +14,7 @@ export default function About() {
     >
       <div className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-primary via-transparent to-[#0d1b2500]" />
       <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-primary via-transparent to-[#0d1b2500]" />
-      <div className="absolute inset-0 bg-primary/95 "></div>
+      <div className="absolute inset-0 bg-primary/93"></div>
       <div className="relative z-10 mx-auto flex w-[80%] flex-row items-center justify-between text-white">
         <div className="lg:animate-about basis-[30%] max-lg:mt-12 lg:mt-80">
           <h1 className="text-[36px]">
