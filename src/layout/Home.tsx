@@ -82,11 +82,11 @@ export default function HomePage() {
       {/* <div className="absolute top-0 h-screen w-full bg-gradient-to-b from-[#112331] via-transparent to-[#112331]"></div> */}
       <div className="z-30 mx-auto w-[95%] pt-80 text-white">
         <div className="animate-home rounded-[32px] bg-opacity-70 bg-none max-lg:w-[70%] max-lg:p-4 lg:w-[35%] lg:p-12">
-          <h1 className="text-2xl max-lg:text-xs">
+          <h1 className="text-2xl max-lg:text-sm max-lg:mt-40">
             Your guide to the NFT world!
           </h1>
-          <h5 className="text-7xl font-bold lg:my-4">
-            <span className="text-secondary max-lg:text-3xl ">UTOPIARA</span>
+          <h5 className="text-7xl font-bold lg:my-4 max-lg:mb-4">
+            <span className="text-secondary max-lg:text-4xl">UTOPIARA</span>
           </h5>
           <GetStartedBtn />
         </div>

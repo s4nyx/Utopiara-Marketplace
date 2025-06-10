@@ -134,7 +134,10 @@ export default function Navbar() {
               </li>
             </ul>
             <div className="ml-auto flex items-center px-6 lg:ml-0 lg:p-0">
-              <Button onClick={() => setIsShowing(true)} className="box" />
+              <Button
+                onClick={() => setIsShowing(true)}
+                className="box max-lg:hidden"
+              />
             </div>
           </nav>
         </div>
