@@ -4,7 +4,6 @@ import Image from "next/image";
 import React from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
-// Sample NFT image - you can replace this with your own image
 const nftImage = "/images/1.webp";
 
 export default function Invest() {
@@ -38,15 +37,14 @@ export default function Invest() {
 
   return (
     <div
-      className="relative min-h-screen w-full bg-primary py-16 text-white"
+      className="relative min-h-screen w-full bg-primary py-16 text-white bg-cover bg-center bg-[url('/webp/background/back_7.webp')] bg-opacity-70"
       ref={component}
     >
-      {/* Background */}
-      <div className="absolute inset-0 bg-primary opacity-90"></div>
+      <div className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-primary via-transparent to-[#0d1b2500]" />
+      <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-primary via-transparent to-[#0d1b2500]" />
+      <div className="absolute inset-0 bg-primary/95 "></div>
 
-      {/* Main Content */}
       <div className="relative z-10 mx-auto lg:w-[90%] max-lg:w-[80%] max-w-7xl">
-        {/* Title */}
         <h1
           className="animate-title mb-12 text-center text-4xl font-bold tracking-wide max-lg:text-2xl lg:text-5xl"
           ref={titleComponent}
@@ -54,14 +52,11 @@ export default function Invest() {
           <span className="text-secondary">HOW IT</span> WORKS:
         </h1>
 
-        {/* Grid Layout: Steps on Left/Right, Image in Center */}
         <div className="flex flex-col   md:grid-cols-3">
-          {/* Left Side Steps */}
           <div
             className="flex max-lg:flex-col max-lg:space-y-4 lg:flex-row"
             ref={leftStepsComponent}
           >
-            {/* Step 1 */}
             <div className="lg:animate-step-left relative flex h-[200px] items-start gap-4 border-b-[1px] border-l-[1px] border-dashed border-secondary">
               <div className="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-primary p-2 text-xl font-bold text-secondary">
                 <div className="w-full rounded-full bg-secondary text-center text-primary">
@@ -79,7 +74,6 @@ export default function Invest() {
               </div>
             </div>
 
-            {/* Step 2 */}
             <div className="lg:animate-step-left relative flex h-[200px] items-start gap-4 border-b-[1px] border-l-[1px] border-dashed border-secondary">
               <div className="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-primary p-2 text-xl font-bold text-secondary">
                 <div className="w-full rounded-full bg-secondary text-center text-primary">
@@ -97,7 +91,6 @@ export default function Invest() {
               </div>
             </div>
 
-            {/* Step 3 */}
             <div className="lg:animate-step-left relative flex h-[200px] items-start gap-4 border-b-[1px] border-l-[1px] border-dashed border-secondary">
               <div className="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-primary p-2 text-xl font-bold text-secondary">
                 <div className="w-full rounded-full bg-secondary text-center text-primary">
@@ -116,7 +109,6 @@ export default function Invest() {
             </div>
           </div>
           <div className="flex flex-col gap-8 border-r-[1px] border-dashed border-secondary pt-[32px]">
-            {/* Center Image */}
             <div
               className="relative flex flex-row justify-end"
               ref={imageComponent}
@@ -131,7 +123,6 @@ export default function Invest() {
                 />
               </div>
 
-              {/* Step 4 */}
               <div className="lg:animate-step-left relative flex h-[200px] items-start gap-4 border-b-[1px] border-l-[1px] border-dashed border-secondary lg:basis-1/3">
                 <div className="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-primary p-2 text-xl font-bold text-secondary">
                   <div className="w-full rounded-full bg-secondary text-center text-primary">
@@ -150,12 +141,10 @@ export default function Invest() {
               </div>
             </div>
 
-            {/* Right Side Steps */}
             <div
               className="flex max-lg:flex-col max-lg:space-y-4 lg:flex-row"
               ref={rightStepsComponent}
             >
-              {/* Step 5 */}
               <div className="lg:animate-step-left relative flex h-[200px] items-start gap-4 border-b-[1px] border-l-[1px] border-dashed border-secondary">
                 <div className="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-primary p-2 text-xl font-bold text-secondary">
                   <div className="w-full rounded-full bg-secondary text-center text-primary">
@@ -173,7 +162,6 @@ export default function Invest() {
                 </div>
               </div>
 
-              {/* Step 6 */}
               <div className="lg:animate-step-left relative flex h-[200px] items-start gap-4 border-b-[1px] border-l-[1px] border-dashed border-secondary">
                 <div className="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-primary p-2 text-xl font-bold text-secondary">
                   <div className="w-full rounded-full bg-secondary text-center text-primary">
@@ -191,7 +179,6 @@ export default function Invest() {
                 </div>
               </div>
 
-              {/* Step 7 */}
               <div className="lg:animate-step-left relative flex h-[200px] items-start gap-4 border-b-[1px] border-l-[1px] border-dashed border-secondary">
                 <div className="absolute -left-6 top-0 flex h-12 w-12 items-center justify-center rounded-full border-2 border-secondary bg-primary p-2 text-xl font-bold text-secondary">
                   <div className="w-full rounded-full bg-secondary text-center text-primary">

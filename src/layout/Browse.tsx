@@ -111,7 +111,7 @@ export default function Browse() {
   ];
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-24">
+    <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-24 bg-cover bg-center bg-[url('/webp/background/back_4.webp')] bg-opacity-70">
       <div className="absolute left-8 top-20 h-40 w-40 border-2 border-fifth"></div>
       <div className="absolute left-24 top-36 h-32 w-32 border-2 border-fifth"></div>
       <div className="absolute left-32 top-16 h-32 w-32 border-2 border-fifth"></div>
@@ -120,19 +120,14 @@ export default function Browse() {
       <div className="absolute max-lg:hidden left-[56%] top-48 h-48 w-48 border-2 border-fifth"></div>
       <div className="absolute max-lg:hidden left-[59%] top-16 h-48 w-48 border-2 border-fifth"></div>
 
-      <div className="absolute bottom-20 left-48 h-40 w-40 border-2 border-fifth"></div>
-      <div className="absolute bottom-36 left-64 h-32 w-32 border-2 border-fifth"></div>
-      <div className="absolute bottom-16 left-72 h-32 w-32 border-2 border-fifth"></div>
-
       <div className="absolute right-8 top-24 h-40 w-40 border-2 border-fifth"></div>
       <div className="absolute right-24 top-40 h-32 w-32 border-2 border-fifth"></div>
       <div className="absolute right-32 top-20 h-32 w-32 border-2 border-fifth"></div>
 
-      {/* <div className="absolute bottom-24 right-20 h-52 w-52 border-2 border-fourth"></div>
-      <div className="absolute bottom-40 right-36 h-44 w-44 border-2 border-fourth"></div>
-      <div className="absolute bottom-20 right-44 h-44 w-44 border-2 border-fourth"></div> */}
+      <div className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-primary via-transparent to-[#0d1b2500]" />
+      <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-primary via-transparent to-[#0d1b2500]" />
 
-      <div className="absolute inset-0 -z-10 bg-primary"></div>
+      <div className="absolute inset-0  bg-primary/80"></div>
       <div className="z-10 mb-16 max-w-2xl text-center">
         <h1 className="font-bold text-white max-lg:text-[36px] md:text-6xl lg:text-5xl">
           <p>BROWSE</p>
@@ -146,12 +141,11 @@ export default function Browse() {
         </p>
         <GetStartedBtn />
       </div>
-      {/* Partners Section */}
-      <div className="w-full py-8">
+      <div className="w-full py-8 z-10">
         <h2 className="lg:animate-partner mb-12 text-center font-bold text-white max-lg:text-2xl lg:text-[40px]">
           OUR <span className="text-secondary">PARTNERS</span>
         </h2>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4 w-[90%] mx-auto">
           {partners.map((partner, index) => (
             <div
               key={index}

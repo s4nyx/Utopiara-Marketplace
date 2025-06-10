@@ -90,10 +90,10 @@ export default function Choose() {
   ];
 
   return (
-    <div className="relative min-h-screen w-full py-24 bg-cover bg-center bg-[url('/webp/background/back_4.webp')] bg-opacity-70">
+    <div className="relative min-h-screen w-full py-24 bg-cover bg-center bg-[url('/webp/background/back.webp')] bg-opacity-70">
       <div className="absolute top-0 w-full h-1/2 bg-gradient-to-b from-primary via-transparent to-[#0d1b2500]" />
       <div className="absolute bottom-0 w-full h-1/2 bg-gradient-to-t from-primary via-transparent to-[#0d1b2500]" />
-      <div className="absolute inset-0 bg-primary/93"></div>
+      <div className="absolute inset-0 bg-primary/95"></div>
       <div className="relative z-10 mx-auto flex w-[90%] max-w-7xl gap-4 max-lg:flex-col lg:w-[80%] lg:flex-row">
         <div className="mb-16 max-w-xl">
           <h1 className=" font-bold text-white max-lg:text-[36px] lg:text-5xl">
