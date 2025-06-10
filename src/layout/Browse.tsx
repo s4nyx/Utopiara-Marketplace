@@ -112,21 +112,21 @@ export default function Browse() {
 
   return (
     <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-24">
-      <div className="absolute left-8 top-20 h-40 w-40 border-2 border-fourth"></div>
-      <div className="absolute left-24 top-36 h-32 w-32 border-2 border-fourth"></div>
-      <div className="absolute left-32 top-16 h-32 w-32 border-2 border-fourth"></div>
+      <div className="absolute left-8 top-20 h-40 w-40 border-2 border-fifth"></div>
+      <div className="absolute left-24 top-36 h-32 w-32 border-2 border-fifth"></div>
+      <div className="absolute left-32 top-16 h-32 w-32 border-2 border-fifth"></div>
 
-      <div className="absolute left-1/2 top-20 h-60 w-60 border-2 border-fourth"></div>
-      <div className="absolute left-[56%] top-48 h-48 w-48 border-2 border-fourth"></div>
-      <div className="absolute left-[59%] top-16 h-48 w-48 border-2 border-fourth"></div>
+      <div className="absolute max-lg:hidden left-1/2 top-20 h-60 w-60 border-2 border-fifth"></div>
+      <div className="absolute max-lg:hidden left-[56%] top-48 h-48 w-48 border-2 border-fifth"></div>
+      <div className="absolute max-lg:hidden left-[59%] top-16 h-48 w-48 border-2 border-fifth"></div>
 
-      <div className="absolute bottom-20 left-48 h-40 w-40 border-2 border-fourth"></div>
-      <div className="absolute bottom-36 left-64 h-32 w-32 border-2 border-fourth"></div>
-      <div className="absolute bottom-16 left-72 h-32 w-32 border-2 border-fourth"></div>
+      <div className="absolute bottom-20 left-48 h-40 w-40 border-2 border-fifth"></div>
+      <div className="absolute bottom-36 left-64 h-32 w-32 border-2 border-fifth"></div>
+      <div className="absolute bottom-16 left-72 h-32 w-32 border-2 border-fifth"></div>
 
-      <div className="absolute right-8 top-24 h-40 w-40 border-2 border-fourth"></div>
-      <div className="absolute right-24 top-40 h-32 w-32 border-2 border-fourth"></div>
-      <div className="absolute right-32 top-20 h-32 w-32 border-2 border-fourth"></div>
+      <div className="absolute right-8 top-24 h-40 w-40 border-2 border-fifth"></div>
+      <div className="absolute right-24 top-40 h-32 w-32 border-2 border-fifth"></div>
+      <div className="absolute right-32 top-20 h-32 w-32 border-2 border-fifth"></div>
 
       {/* <div className="absolute bottom-24 right-20 h-52 w-52 border-2 border-fourth"></div>
       <div className="absolute bottom-40 right-36 h-44 w-44 border-2 border-fourth"></div>
@@ -134,7 +134,7 @@ export default function Browse() {
 
       <div className="absolute inset-0 -z-10 bg-primary"></div>
       <div className="z-10 mb-16 max-w-2xl text-center">
-        <h1 className="font-bold text-white max-lg:text-2xl md:text-6xl lg:text-5xl">
+        <h1 className="font-bold text-white max-lg:text-[36px] md:text-6xl lg:text-5xl">
           <p>BROWSE</p>
           <p className="my-4 text-secondary">EXCLUSIVE NFT</p>
           <p>COLLECTIONS</p>

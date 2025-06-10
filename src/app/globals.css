@@ -9,6 +9,7 @@
   --secondary: #01eaf9;
   --third: #36556D;
   --fourth: #112331;
+  --fifth: #061c33;
 }
 
 @theme  {
@@ -20,8 +21,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-fifth: var(--fifth);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
 }
 
 @media (prefers-color-scheme: dark) {
