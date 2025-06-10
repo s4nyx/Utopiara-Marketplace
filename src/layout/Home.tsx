@@ -1,22 +1,83 @@
 "use client";
 import GetStartedBtn from "@/components/GetStartedBtn/GetStartedBtn";
-import React from "react";
+import React, { useLayoutEffect, useRef } from "react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Image from "next/image";
+import gsap from "gsap";
 
 export default function HomePage() {
   const component = useScrollAnimation(".animate-home");
+  const app = useRef<HTMLImageElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(app.current, {
+        opacity: 1,
+        overwrite: true,
+        ease: "power1.out",
+        duration: 1,
+        yoyo: true,
+        repeat: -1,
+      });
+    }, app);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
     <section
       id="home"
-      className="relative h-[100vh] w-full bg-primary "
+      className="relative h-[100vh] w-full bg-primary"
       ref={component}
     >
-      <div className="absolute right-0 h-screen scale-x-[-1] bg-[url('/images/background.webp')] bg-cover bg-center max-lg:w-full lg:w-[70%] " />
-      <div className="absolute right-0 h-screen bg-gradient-to-r from-[#000000] via-transparent to-[#0d1b25c2] max-lg:w-full lg:w-[71%] z-10" />
-      <div className="absolute left-8 top-20 h-40 w-40 border-2 border-fourth max-lg:hidden"></div>
-      <div className="absolute left-24 top-36 h-32 w-32 border-2 border-fourth max-lg:hidden"></div>
-      <div className="absolute left-32 top-16 h-32 w-32 border-2 border-fourth max-lg:hidden"></div>
+      <div className="absolute right-0 h-screen max-lg:w-full lg:w-[70%] ">
+        <Image
+          alt="background_1"
+          src="/images/background.png"
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+          blurDataURL="/images/background_blur.png"
+          placeholder="blur"
+          priority
+        />
+        <Image
+          ref={app}
+          alt="background_2"
+          src="/images/background-1.png"
+          className="opacity-0"
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+          blurDataURL="/images/background_blur.png"
+          placeholder="blur"
+          loading="eager"
+        />
+        {/* <Image
+          alt="background"
+          src="/images/background.webp"
+          width={1000}
+          height={1000}
+          className="w-full h-screen"
+        /> */}
+      </div>
+      <div className="absolute right-0 h-screen bg-gradient-to-r from-primary via-transparent to-[#0d1b25c2] max-lg:w-full lg:w-[71%] " />
+      <div className="absolute right-0 h-screen bg-gradient-to-t from-primary via-transparent to-[#0d1b2500] max-lg:w-full lg:w-[71%] " />
+      <div className="absolute left-8 top-20 h-40 w-40 border-2 border-[#061c33] max-lg:hidden"></div>
+      <div className="absolute left-24 top-36 h-32 w-32 border-2 border-[#061c33] max-lg:hidden"></div>
+      <div className="absolute left-32 top-16 h-32 w-32 border-2 border-[#061c33] max-lg:hidden"></div>
+
+      {/* <div className="absolute left-[352px] top-50 h-20 w-20 border-2 border-[#061c33] max-lg:hidden"></div>
+      <div className="absolute left-[396px] top-66 h-12 w-12 border-2 border-[#061c33] max-lg:hidden"></div>
+      <div className="absolute left-[408px] top-60 h-12 w-12 border-2 border-[#061c33] max-lg:hidden"></div> */}
+
+      <div className="absolute left-36 bottom-40 h-32 w-32 border-2 border-[#061c33] max-lg:hidden"></div>
+      <div className="absolute left-52 bottom-56 h-24 w-24 border-2 border-[#061c33] max-lg:hidden"></div>
+      <div className="absolute left-60 bottom-36 h-24 w-24 border-2 border-[#061c33] max-lg:hidden"></div>
 
       {/* <div className="absolute top-0 h-screen w-full bg-gradient-to-b from-[#112331] via-transparent to-[#112331]"></div> */}
       <div className="z-30 mx-auto w-[95%] pt-80 text-white">
@@ -25,7 +86,7 @@ export default function HomePage() {
             Your guide to the NFT world!
           </h1>
           <h5 className="text-7xl font-bold lg:my-4">
-            <span className="text-secondary max-lg:text-3xl">UTOPIARA</span>
+            <span className="text-secondary max-lg:text-3xl ">UTOPIARA</span>
           </h5>
           <GetStartedBtn />
         </div>

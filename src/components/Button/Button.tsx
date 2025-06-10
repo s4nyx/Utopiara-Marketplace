@@ -10,7 +10,7 @@ interface ButtonProps {
 export default function Button({ onClick, className }: ButtonProps) {
   return (
     <button className={className ? className : "box"} onClick={onClick}>
-      <p className="text-button text-primary">{"Login"}</p>
+      <p className="text-button text-primary">{"LOGIN"}</p>
     </button>
   );
 }
