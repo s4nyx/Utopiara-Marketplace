@@ -30,7 +30,7 @@ export default function HomePage() {
       className="relative h-[100vh] w-full bg-primary"
       ref={component}
     >
-      <div className="absolute right-0 h-screen max-lg:w-full lg:w-[70%] ">
+      <div className="absolute right-0 lg:h-screen max-lg:h-[90vh] max-lg:w-full lg:w-[70%] ">
         <Image
           alt="background_1"
           src="/images/background.png"
