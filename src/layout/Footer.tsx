@@ -20,7 +20,7 @@ export default function Footer() {
           Innovator in the field of NFTs.
         </h1>
       </div>
-      <div className="flex w-[70%] basis-[75%] items-center justify-between max-lg:flex-col max-lg:gap-4 max-lg:mt-8 lg:flex-row">
+      <div className="flex lg:w-[70%] max-lg:w-full basis-[75%] items-center justify-between max-lg:flex-col max-lg:gap-4 max-lg:mt-8 lg:flex-row">
         <div className="flex flex-row basis-[40%] w-full justify-between items-center  gap-8">
           <div className="flex w-full flex-col items-start justify-between text-gray-500">
             <h1 className="mb-4 text-[16px] text-white">MARKETPLACE</h1>
