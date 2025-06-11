@@ -32,8 +32,8 @@ export default function Navbar() {
               <Image
                 alt="logo"
                 src="/logo.png"
-                width={12}
-                height={12}
+                width={100}
+                height={100}
                 className="h-12 w-12"
               />
               Utopiara

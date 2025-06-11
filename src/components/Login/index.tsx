@@ -96,7 +96,7 @@ export default function Login({
 
   return (
     <div
-      className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-[#000000b7] backdrop-blur-lg"
+      className="fixed left-0 top-0 z-30 flex h-screen w-screen items-center justify-center bg-[#000000b7] "
       aria-labelledby="header-4a content-4a"
       aria-modal="true"
       tabIndex={-1}
@@ -105,14 +105,17 @@ export default function Login({
       {/*    <!-- Modal --> */}
       <div
         ref={wrapperRef}
-        className="flex h-[60vh] w-[30vw] flex-col gap-4 overflow-hidden rounded border-[1px] border-white bg-primary p-6 pb-4 pt-10 text-white shadow-xl shadow-slate-700/10"
+        className="flex h-[60vh] min-w-[400px] w-[25vw] flex-col rounded-2xl gap-4 overflow-hidden  border-[1px] border-zinc-700 bg-primary p-6 pb-4 pt-10 text-white "
         id="modal"
         role="document"
       >
         {/*        <!-- Modal header --> */}
-        <header id="header-4a" className="flex items-start justify-between">
-          <h3 className="mb-10 flex-1 text-2xl font-medium text-white">
-            Welcome back!
+        <header
+          id="header-4a"
+          className="flex items-center justify-between mb-10"
+        >
+          <h3 className=" flex-1 text-2xl text-center font-medium text-white">
+            Sign In
           </h3>
           <button
             onClick={() => setIsShowing(false)}
@@ -212,7 +215,7 @@ export default function Login({
         <div className="flex justify-center gap-2">
           <button
             onClick={handleSubmit}
-            className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none"
+            className="inline-flex h-10 w-full items-center text-primary justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none"
           >
             <span>Login</span>
           </button>

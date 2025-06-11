@@ -100,7 +100,7 @@ export default function Register({
 
   return (
     <div
-      className="fixed left-0 top-0 z-20 flex h-screen w-screen items-center justify-center bg-[#000000b7] backdrop-blur-lg"
+      className="fixed left-0 top-0 z-30 flex h-screen w-screen items-center justify-center bg-[#000000b7] "
       aria-labelledby="header-4a content-4a"
       aria-modal="true"
       tabIndex={-1}
@@ -109,14 +109,17 @@ export default function Register({
       {/*    <!-- Modal --> */}
       <div
         ref={wrapperRef}
-        className="flex h-[60vh] w-[30vw] flex-col gap-4 overflow-hidden rounded border-[1px] border-white bg-primary p-6 pb-4 pt-10 text-white shadow-xl shadow-slate-700/10"
+        className="flex h-[70vh] min-w-[400px] w-[25vw] flex-col rounded-2xl lex-col gap-4 overflow-hidden  border-[1px] border-zinc-700 bg-primary p-6 pb-4 pt-10 text-white "
         id="modal"
         role="document"
       >
         {/*        <!-- Modal header --> */}
-        <header id="header-4a" className="flex items-start justify-between">
-          <h3 className="mb-4 flex-1 text-2xl font-medium text-white">
-            Welcome back!
+        <header
+          id="header-4a"
+          className="flex items-center justify-between mb-4 "
+        >
+          <h3 className="flex-1 text-2xl text-center font-medium text-white">
+            Sign Up
           </h3>
           <button
             onClick={() => setIsShowing(false)}
@@ -172,18 +175,18 @@ export default function Register({
               </small>
             </div>
             {/*                <!-- Input field --> */}
-            <div className="relative">
+            <div className="relative mt-4">
               <input
-                id="id-b03"
+                id="id-b04"
                 type="email"
-                name="id-b03"
+                name="id-b04"
                 placeholder="your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 className="peer relative h-10 w-full rounded border border-slate-200 px-4 text-sm text-white placeholder-transparent outline-none transition-all autofill:bg-primary invalid:border-pink-500 invalid:text-pink-500 focus:border-secondary focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
               />
               <label
-                htmlFor="id-b03"
+                htmlFor="id-b04"
                 className="absolute -top-2 left-2 z-[1] px-2 text-xs text-slate-400 transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-none before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-secondary peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
               >
                 Your email
@@ -193,7 +196,7 @@ export default function Register({
               </small>
             </div>
             {/*                <!-- Input field --> */}
-            <div className="relative mt-6">
+            <div className="relative mt-6 mb-4">
               <input
                 id="id-b13"
                 type="password"
@@ -266,7 +269,7 @@ export default function Register({
         <div className="flex justify-center gap-2">
           <button
             onClick={handleSubmit}
-            className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide text-white transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none"
+            className="inline-flex h-10 w-full items-center justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide text-primary transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none"
           >
             <span>Sign Up</span>
           </button>
