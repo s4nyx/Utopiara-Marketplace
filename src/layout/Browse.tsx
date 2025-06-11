@@ -1,5 +1,8 @@
+"use client";
 import GetStartedBtn from "@/components/GetStartedBtn/GetStartedBtn";
-import React from "react";
+import Image from "next/image";
+import React, { useLayoutEffect, useRef } from "react";
+import gsap from "gsap";
 
 export default function Browse() {
   const partners = [
@@ -109,9 +112,53 @@ export default function Browse() {
       hoverColor: "group-hover:text-[#FF4C3B]",
     },
   ];
+  const app = useRef<HTMLImageElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  useLayoutEffect(() => {
+    const ctx = gsap.context(() => {
+      gsap.to(app.current, {
+        opacity: 1,
+        overwrite: true,
+        ease: "power1.out",
+        duration: 1,
+        yoyo: true,
+        repeat: -1,
+      });
+    }, app);
+
+    return () => ctx.revert();
+  }, []);
 
   return (
-    <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-24 bg-cover bg-center bg-[url('/webp/background/back_4.webp')] bg-opacity-70">
+    <div className="relative flex min-h-screen w-full flex-col items-center justify-center py-24 ">
+      <div className="absolute left-0 top-0 w-full h-full">
+        <Image
+          alt="background_1"
+          src="/webp/background/back_4.webp"
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+          blurDataURL="/webp/background/back4_blur.webp"
+          placeholder="blur"
+          priority
+        />
+        <Image
+          ref={app}
+          alt="background_2"
+          src="/webp/background/back_10.webp"
+          className="opacity-0"
+          fill
+          sizes="100vw"
+          style={{
+            objectFit: "cover",
+          }}
+          blurDataURL="/webp/background/back4_blur.webp"
+          placeholder="blur"
+          loading="eager"
+        />
+      </div>
       {/* <div className="absolute left-8 top-20 h-40 w-40 border-2 border-fifth"></div>
       <div className="absolute left-24 top-36 h-32 w-32 border-2 border-fifth"></div>
       <div className="absolute left-32 top-16 h-32 w-32 border-2 border-fifth"></div>

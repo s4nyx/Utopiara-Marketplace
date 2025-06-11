@@ -27,7 +27,7 @@ export default function TableRow({
   return (
     <div className="mt-4 flex relative w-full flex-row items-center justify-between text-xl text-white">
       {isDetailShowing && (
-        <div className="absolute -bottom-[200px] w-[450px]  rounded-lg p-2 flex flex-col items-start justify-between text-white bg-third z-10">
+        <div className="absolute -bottom-[230px] w-[450px]  rounded-lg p-2 flex flex-col items-start justify-between text-white bg-third z-10">
           <div className="text-xl">{collection}</div>
           <div className="flex flex-row w-full justify-between border-b-[1px] p-1 border-secondary">
             <Image

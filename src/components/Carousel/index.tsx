@@ -45,10 +45,10 @@ export default function Carousel() {
     <>
       <div className="glide-04 max-w-screen relative mt-16 w-full">
         <div
-          className=" overflow-y-visible overflow-x-hidden"
+          className=" overflow-y-visible max-lg:overflow-x-hidden"
           data-glide-el="track"
         >
-          <ul className="whitespace-no-wrap overflow-hidden flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full  overflow-y-visible p-0">
+          <ul className="whitespace-no-wrap  flex-no-wrap [backface-visibility: hidden] [transform-style: preserve-3d] [touch-action: pan-Y] [will-change: transform] relative flex w-full  overflow-y-visible p-0">
             {images.map((image: string, index: number) => (
               <li
                 key={index}
