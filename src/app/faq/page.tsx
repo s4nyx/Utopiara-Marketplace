@@ -10,7 +10,7 @@ export default function faq() {
         <div className="mb-8 text-6xl text-white drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
           FAQ
         </div>
-        <section className="lg:w-1/2 max-lg:w-[90%] divide-y divide-slate-200 rounded bg-fourth shadow-md shadow-slate-200">
+        <section className="lg:w-1/2 max-lg:w-[90%] divide-y divide-slate-200 rounded bg-fourth">
           <details className="group p-4">
             <summary className="relative flex cursor-pointer list-none gap-4 pr-8 font-medium text-white transition-colors duration-300 focus:text-secondary focus-visible:outline-none group-hover:text-secondary  [&::-webkit-details-marker]:hidden">
               <svg
