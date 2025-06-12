@@ -25,57 +25,63 @@ export default function TableRow({
   const [isDetailShowing, setIsDetailShowing] = useState(false);
 
   return (
-    <div className="mt-4 flex relative w-full flex-row items-center justify-between text-xl text-white">
-      {isDetailShowing && (
-        <div className="absolute -bottom-[230px] w-[450px]  rounded-lg p-2 flex flex-col items-start justify-between text-white bg-third z-10">
-          <div className="text-xl">{collection}</div>
-          <div className="flex flex-row w-full justify-between border-b-[1px] p-1 border-secondary">
-            <Image
-              src={"/images/1.jpg"}
-              alt="image"
-              width={200}
-              height={100}
-              className="h-[100px] w-[135px]"
-            />
-            <Image
-              src={"/images/1.jpg"}
-              alt="image"
-              width={200}
-              height={100}
-              className="h-[100px] w-[135px]"
-            />
-            <Image
-              src={"/images/1.jpg"}
-              alt="image"
-              width={200}
-              height={100}
-              className="h-[100px] w-[135px]"
-            />
+    <div
+      className={`mt-4 flex relative w-full flex-row items-center transition-colors duration-500 justify-between text-xl text-white ${
+        isDetailShowing && "bg-secondary !text-primary rounded-sm"
+      }`}
+    >
+      <div
+        className={`absolute transition-all duration-500 -bottom-[220px] lg:left-24 w-[450px]  rounded-lg p-2 flex flex-col items-start justify-between  bg-fifth text-secondary z-10  ${
+          isDetailShowing ? "block" : "hidden"
+        }`}
+      >
+        <div className="text-xl">{collection}</div>
+        <div className="flex flex-row w-full justify-between border-b-[1px] p-1 border-secondary">
+          <Image
+            src={"/images/1.jpg"}
+            alt="image"
+            width={200}
+            height={100}
+            className="h-[100px] w-[135px]"
+          />
+          <Image
+            src={"/images/1.jpg"}
+            alt="image"
+            width={200}
+            height={100}
+            className="h-[100px] w-[135px]"
+          />
+          <Image
+            src={"/images/1.jpg"}
+            alt="image"
+            width={200}
+            height={100}
+            className="h-[100px] w-[135px]"
+          />
+        </div>
+        <div className="flex flex-row w-full gap-2 justify-between text-xs items-start">
+          <div className="flex flex-col items-start gap-2">
+            <h1 className="">FLOOR PRICE</h1>
+            <p className="">0.003 ETH</p>
           </div>
-          <div className="flex flex-row w-full gap-2 justify-between items-start">
-            <div className="flex flex-col items-start gap-2">
-              <h1 className="text-sm">FLOOR PRICE</h1>
-              <p className="text-sm">0.003 ETH</p>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <h1 className="text-sm">FLOOR PRICE</h1>
-              <p className="text-sm">0.003 ETH</p>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <h1 className="text-sm">FLOOR PRICE</h1>
-              <p className="text-sm">0.003 ETH</p>
-            </div>
-            <div className="flex flex-col items-start gap-2">
-              <h1 className="text-sm">FLOOR PRICE</h1>
-              <p className="text-sm">0.003 ETH</p>
-            </div>
+          <div className="flex flex-col items-start gap-2">
+            <h1 className="">FLOOR PRICE</h1>
+            <p className="">0.003 ETH</p>
+          </div>
+          <div className="flex flex-col items-start gap-2">
+            <h1 className="">FLOOR PRICE</h1>
+            <p className="">0.003 ETH</p>
+          </div>
+          <div className="flex flex-col items-start gap-2">
+            <h1 className="">FLOOR PRICE</h1>
+            <p className="">0.003 ETH</p>
           </div>
         </div>
-      )}
+      </div>
 
       <div className="basis-[5%] text-center">{index}</div>
       <div
-        className="basis-[35%] cursor-pointer text-center"
+        className="basis-[30%] cursor-pointer text-center"
         onMouseEnter={() => {
           setIsDetailShowing(true);
         }}
@@ -89,7 +95,7 @@ export default function TableRow({
       <div className="basis-[10%] text-center max-lg:hidden">{change}</div>
       <div className="basis-[10%] text-center">{floor_price}</div>
       <div className="basis-[10%] text-center max-lg:hidden">{sales}</div>
-      <div className="basis-[10%] text-center max-lg:hidden">
+      <div className="basis-[15%] text-center max-lg:hidden">
         {unique_owners}
       </div>
       <div className="basis-[10%] text-center max-lg:hidden">

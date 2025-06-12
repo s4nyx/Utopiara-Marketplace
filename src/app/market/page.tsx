@@ -68,7 +68,7 @@ export default function Market() {
       <Navbar />
       <div className="mx-auto relative w-screen bg-primary py-12 bg-cover bg-center bg-[url('/webp/background/back_1.webp')]">
         <div className="absolute  left-0 top-0 w-full h-full bg-primary opacity-90"></div>
-        <div className="mx-auto mt-16 w-[90%] text-4xl text-secondary">
+        <div className="mx-auto  w-[90%] text-4xl text-secondary">
           <div className="mb-8 w-full text-5xl drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
             Collection stats
           </div>

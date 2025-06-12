@@ -6,12 +6,12 @@ export default function Table() {
     <div className="flex w-full flex-col justify-start text-xs">
       <div className="flex w-full flex-row items-center justify-between text-xl">
         <div className="basis-[5%] text-center">#</div>
-        <div className="basis-[35%] text-center">Collection</div>
+        <div className="basis-[30%] text-center">Collection</div>
         <div className="basis-[10%] text-center max-lg:hidden">Volume</div>
         <div className="basis-[10%] text-center max-lg:hidden">Change</div>
         <div className="basis-[10%] text-center">Floor price</div>
         <div className="basis-[10%] text-center max-lg:hidden">Sales</div>
-        <div className="basis-[10%] text-center max-lg:hidden">
+        <div className="basis-[15%] text-center max-lg:hidden">
           Unique owners
         </div>
         <div className="basis-[10%] text-center max-lg:hidden">
