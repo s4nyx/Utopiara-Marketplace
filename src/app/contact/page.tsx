@@ -1,11 +1,8 @@
 import ContactCard from "@/components/ContactCard";
-import Navbar from "@/layout/Navbar";
-import React from "react";
 
 export default function page() {
   return (
     <>
-      <Navbar />
       <div className="mx-auto relative bg-cover bg-center bg-[url('/webp/background/back_6.webp')] flex lg:flex-row max-lg:flex-col min-h-screen w-screen lg:items-start max-lg:items-center lg:justify-center max-lg:justify-start bg-primary lg:px-80 lg:py-32 max-lg:py-0">
         <div className="absolute  left-0 top-0 w-full h-full bg-primary opacity-90"></div>
         <div className="w-full lg:basis-1/2 z-30 max-lg:text-center text-white">

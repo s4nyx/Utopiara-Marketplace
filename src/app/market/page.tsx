@@ -1,6 +1,5 @@
 "use client";
-import Navbar from "@/layout/Navbar";
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Table from "@/components/Table";
 
 interface TabState {
@@ -65,14 +64,13 @@ export default function Market() {
 
   return (
     <>
-      <Navbar />
-      <div className="mx-auto relative w-screen bg-primary py-12 bg-cover bg-center bg-[url('/webp/background/back_1.webp')]">
+      <div className="mx-auto relative w-screen bg-primary py-12 bg-cover bg-center bg-[url('/webp/background/back_1.webp')] pb-72">
         <div className="absolute  left-0 top-0 w-full h-full bg-primary opacity-90"></div>
         <div className="mx-auto  w-[90%] text-4xl text-secondary">
           <div className="mb-8 w-full text-5xl drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
             Collection stats
           </div>
-          <div className="w-full flex flex-col items-start z-30">
+          <div className="w-full flex flex-col items-start z-30 ">
             <ul
               className="flex items-center w-full z-30  gap-2 border-b-[1px] border-zinc-500 pb-4"
               role="tablist"

@@ -1,12 +1,9 @@
 "use client";
-import Navbar from "@/layout/Navbar";
 import Image from "next/image";
-import React from "react";
 
 export default function faq() {
   return (
     <>
-      <Navbar />
       <div className="mx-auto flex relative min-h-screen w-screen flex-col items-center justify-center bg-primary ">
         <Image
           alt="background"

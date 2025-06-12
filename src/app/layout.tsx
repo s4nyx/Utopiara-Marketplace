@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Bruno_Ace_SC } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/layout/Navbar";
+import Footer from "@/layout/Footer";
 
 const inter = Bruno_Ace_SC({
   subsets: ["latin"],
@@ -20,7 +22,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <Navbar />
       <body className={inter.className}>{children}</body>
+      <Footer />
     </html>
   );
 }
