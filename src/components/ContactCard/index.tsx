@@ -18,7 +18,7 @@ const ContactCard = () => (
             rows={10}
             id="textarea"
             name="textarea"
-            defaultValue={"          "}
+            defaultValue={""}
           />
         </div>
         <button type="submit" className="form-submit-btn">

@@ -196,7 +196,7 @@ export default function Browse() {
           {partners.map((partner, index) => (
             <div
               key={index}
-              className="animate-partner-logo group flex cursor-pointer flex-row items-center gap-4 rounded-xl bg-[#061623]/50 p-6 transition-all duration-300 hover:bg-[#092a42]/50 hover:shadow-lg hover:shadow-secondary/10 lg:flex-col lg:py-8"
+              className="animate-partner-logo group flex cursor-pointer flex-row items-center gap-4 rounded-xl bg-[#061623]/70 p-6 transition-all duration-300 hover:bg-[#092a42]/50 hover:shadow-lg hover:shadow-secondary/10 lg:flex-col lg:py-8"
             >
               <div className="flex h-16 w-16 items-center justify-center rounded-lg bg-white/5 p-2 transition-all duration-300 group-hover:bg-white/10 lg:h-24 lg:w-24">
                 {partner.logo}

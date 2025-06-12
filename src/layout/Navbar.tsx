@@ -124,14 +124,14 @@ export default function Navbar() {
                   CONTACT
                 </Link>
               </li>
-              <li role="none" className="flex items-stretch">
+              {/* <li role="none" className="flex items-stretch">
                 <Link
                   href="/#about"
                   className="flex items-center  py-4 hover:text-secondary lg:px-8"
                 >
                   ABOUT
                 </Link>
-              </li>
+              </li> */}
             </ul>
             <div className="ml-auto flex items-center px-6 lg:ml-0 lg:p-0">
               <Button
