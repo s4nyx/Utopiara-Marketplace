@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React, { useState } from "react";
 
 interface CollectionProps {
@@ -24,11 +25,13 @@ export default function TableRow({
 }: CollectionProps) {
   const [isDetailShowing, setIsDetailShowing] = useState(false);
 
+  
+
   return (
-    <div
+    <Link
       className={`mt-4 flex relative w-full flex-row items-center transition-colors duration-500 justify-between text-xl text-white ${
         isDetailShowing && "bg-secondary !text-primary rounded-sm"
-      }`}
+      }`} href={`/market/${collection}`}
     >
       <div
         className={`absolute transition-all duration-500 -bottom-[220px] lg:left-24 w-[450px]  rounded-lg p-2 flex flex-col items-start justify-between  bg-fifth text-secondary z-10  ${
@@ -101,6 +104,6 @@ export default function TableRow({
       <div className="basis-[10%] text-center max-lg:hidden">
         {items_listed}
       </div>
-    </div>
+    </Link>
   );
 }
