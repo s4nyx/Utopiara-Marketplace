@@ -73,9 +73,9 @@ export default function TableRow({
         </div>
       )}
 
-      <div className="basis-[5%]">{index}</div>
+      <div className="basis-[5%] text-center">{index}</div>
       <div
-        className="basis-[35%] cursor-pointer"
+        className="basis-[35%] cursor-pointer text-center"
         onMouseEnter={() => {
           setIsDetailShowing(true);
         }}
@@ -85,12 +85,16 @@ export default function TableRow({
       >
         {collection}
       </div>
-      <div className="basis-[10%] max-lg:hidden">{volume}</div>
-      <div className="basis-[10%] max-lg:hidden">{change}</div>
-      <div className="basis-[10%]">{floor_price}</div>
-      <div className="basis-[10%] max-lg:hidden">{sales}</div>
-      <div className="basis-[10%] max-lg:hidden">{unique_owners}</div>
-      <div className="basis-[10%] max-lg:hidden">{items_listed}</div>
+      <div className="basis-[10%] text-center max-lg:hidden">{volume}</div>
+      <div className="basis-[10%] text-center max-lg:hidden">{change}</div>
+      <div className="basis-[10%] text-center">{floor_price}</div>
+      <div className="basis-[10%] text-center max-lg:hidden">{sales}</div>
+      <div className="basis-[10%] text-center max-lg:hidden">
+        {unique_owners}
+      </div>
+      <div className="basis-[10%] text-center max-lg:hidden">
+        {items_listed}
+      </div>
     </div>
   );
 }

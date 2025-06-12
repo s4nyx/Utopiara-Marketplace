@@ -66,14 +66,15 @@ export default function Market() {
   return (
     <>
       <Navbar />
-      <div className="mx-auto  w-screen bg-primary py-12">
+      <div className="mx-auto relative w-screen bg-primary py-12 bg-cover bg-center bg-[url('/webp/background/back_1.webp')]">
+        <div className="absolute  left-0 top-0 w-full h-full bg-primary opacity-90"></div>
         <div className="mx-auto mt-16 w-[90%] text-4xl text-secondary">
-          <div className="mb-8 text-5xl drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
+          <div className="mb-8 w-full text-5xl drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
             Collection stats
           </div>
-          <section className="max-w-full" aria-multiselectable="false">
+          <div className="w-full flex flex-col items-start z-30">
             <ul
-              className="flex items-center gap-2 border-b-[1px] border-zinc-500 pb-4"
+              className="flex items-center w-full z-30  gap-2 border-b-[1px] border-zinc-500 pb-4"
               role="tablist"
               ref={wrapperRef}
             >
@@ -81,8 +82,8 @@ export default function Market() {
                 <button
                   className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded px-6 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
                     tabSelected.currentTab === 1
-                      ? "bg-secondary text-white hover:bg-secondary focus:bg-secondary disabled:bg-emerald-300"
-                      : "w-full justify-self-center stroke-slate-700 text-white hover:bg-emerald-50 hover:stroke-emerald-500 hover:text-secondary focus:bg-emerald-50 focus:stroke-secondary focus:text-secondary disabled:text-emerald-300"
+                      ? "bg-secondary text-white hover:bg-secondary focus:bg-secondary focus:text-primary disabled:bg-emerald-300"
+                      : "w-full justify-self-center stroke-slate-700 text-white hover:bg-secondary  hover:text-white focus:bg-emerald-50 focus:stroke-secondary focus:text-primary "
                   }`}
                   id="tab-label-1e"
                   role="tab"
@@ -102,8 +103,8 @@ export default function Market() {
                 <button
                   className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded px-6 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
                     tabSelected.currentTab === 2
-                      ? "bg-secondary text-white hover:bg-emerald-600 focus:bg-secondary disabled:bg-emerald-300"
-                      : "w-full justify-self-center stroke-slate-700 text-white hover:bg-emerald-50 hover:stroke-emerald-500 hover:text-secondary focus:bg-emerald-50 focus:stroke-emerald-600 focus:text-secondary disabled:text-emerald-300"
+                      ? "bg-secondary text-white hover:bg-secondary focus:bg-secondary focus:text-primary disabled:bg-emerald-300"
+                      : "w-full justify-self-center stroke-slate-700 text-white hover:bg-secondary  hover:text-white focus:bg-emerald-50 focus:stroke-secondary focus:text-primary "
                   }`}
                   id="tab-label-2e"
                   role="tab"
@@ -123,8 +124,8 @@ export default function Market() {
                 <button
                   className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded px-6 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
                     tabSelected.currentTab === 3
-                      ? "bg-secondary text-white hover:bg-emerald-600 focus:bg-secondary disabled:bg-emerald-300"
-                      : "w-full justify-self-center stroke-slate-700 text-white hover:bg-emerald-50 hover:stroke-emerald-500 hover:text-secondary focus:bg-emerald-50 focus:stroke-secondary focus:text-secondary disabled:text-emerald-300"
+                      ? "bg-secondary text-white hover:bg-secondary focus:bg-secondary focus:text-primary disabled:bg-emerald-300"
+                      : "w-full justify-self-center stroke-slate-700 text-white hover:bg-secondary  hover:text-white focus:bg-emerald-50 focus:stroke-secondary focus:text-primary "
                   }`}
                   id="tab-label-3e"
                   role="tab"
@@ -141,7 +142,7 @@ export default function Market() {
                 </button>
               </li>
             </ul>
-            <div className="">
+            <div className="w-full z-30">
               <div
                 className={`px-6 py-4 ${
                   tabSelected.currentTab === 1 ? "" : "hidden"
@@ -179,7 +180,7 @@ export default function Market() {
                 <Table />
               </div>
             </div>
-          </section>
+          </div>
         </div>
       </div>
     </>
