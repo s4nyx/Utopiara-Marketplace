@@ -2,43 +2,42 @@ import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
 
-interface CollectionProps {
+interface nftProps {
   index: number;
-  collection: string;
-  volume: string;
-  change: string;
-  floor_price: string;
-  sales: string;
-  unique_owners: string;
-  items_listed: string;
+  nft: string;
+  rarity: string;
+  price: string;
+  top_offer: string;
+  last_sale: string;
+  owner: string;
+  listed: string;
 }
 
 export default function TableRow({
   index,
-  collection,
-  volume,
-  change,
-  floor_price,
-  sales,
-  unique_owners,
-  items_listed,
-}: CollectionProps) {
+  nft,
+  rarity,
+  price,
+  top_offer,
+  last_sale,
+  owner,
+  listed,
+}: nftProps) {
   const [isDetailShowing, setIsDetailShowing] = useState(false);
-
-  
 
   return (
     <Link
       className={`mt-4 flex relative w-full flex-row items-center transition-colors duration-500 justify-between text-xl text-white ${
         isDetailShowing && "bg-secondary !text-primary rounded-sm"
-      }`} href={`/market/${collection}`}
+      }`}
+      href={`/market/${nft}`}
     >
       <div
         className={`absolute transition-all duration-500 -bottom-[220px] lg:left-24 w-[450px]  rounded-lg p-2 flex flex-col items-start justify-between  bg-fifth text-secondary z-10  ${
           isDetailShowing ? "block" : "hidden"
         }`}
       >
-        <div className="text-xl">{collection}</div>
+        <div className="text-xl">{nft}</div>
         <div className="flex flex-row w-full justify-between border-b-[1px] p-1 border-secondary">
           <Image
             src={"/images/1.jpg"}
@@ -92,18 +91,14 @@ export default function TableRow({
           setIsDetailShowing(false);
         }}
       >
-        {collection}
+        {nft}
       </div>
-      <div className="basis-[10%] text-center max-lg:hidden">{volume}</div>
-      <div className="basis-[10%] text-center max-lg:hidden">{change}</div>
-      <div className="basis-[10%] text-center">{floor_price}</div>
-      <div className="basis-[10%] text-center max-lg:hidden">{sales}</div>
-      <div className="basis-[15%] text-center max-lg:hidden">
-        {unique_owners}
-      </div>
-      <div className="basis-[10%] text-center max-lg:hidden">
-        {items_listed}
-      </div>
+      <div className="basis-[10%] text-center max-lg:hidden">{rarity}</div>
+      <div className="basis-[10%] text-center max-lg:hidden">{price}</div>
+      <div className="basis-[10%] text-center">{top_offer}</div>
+      <div className="basis-[10%] text-center max-lg:hidden">{last_sale}</div>
+      <div className="basis-[15%] text-center max-lg:hidden">{owner}</div>
+      <div className="basis-[10%] text-center max-lg:hidden">{listed}</div>
     </Link>
   );
 }
