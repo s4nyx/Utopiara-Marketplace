@@ -296,7 +296,6 @@ const Map: React.FC = () => {
   return (
     <div className="h-screen w-screen relative">
       <Label />
-      <Navbar />
       <div className="h-[calc(100vh-112px)] w-screen">
         <MapContainer
           center={[0, 0]}

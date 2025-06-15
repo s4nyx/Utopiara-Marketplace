@@ -4,6 +4,7 @@ import React, { useState } from "react";
 
 interface nftProps {
   index: number;
+  img: string;
   nft: string;
   rarity: string;
   price: string;
@@ -11,15 +12,18 @@ interface nftProps {
   last_sale: string;
   owner: string;
   listed: string;
+  viewMode: number;
 }
 
 export default function TableRow({
   index,
   nft,
+  img,
   rarity,
   price,
   top_offer,
   last_sale,
+  viewMode,
   owner,
   listed,
 }: nftProps) {
@@ -27,7 +31,13 @@ export default function TableRow({
 
   return (
     <Link
-      className={`mt-4 flex relative w-full flex-row items-center transition-colors duration-500 justify-between text-xl text-white ${
+      className={`mt-4 flex relative  ${
+        viewMode === 1 || viewMode === 2
+          ? `flex-col ${
+              viewMode === 1 ? "w-[20%]" : "w-[15%]"
+            } rounded-2xl bg-fifth hover:bg-secondary hover:text-primary p-2`
+          : "flex-row"
+      } items-center transition-colors duration-500 justify-between text-xl text-white ${
         isDetailShowing && "bg-secondary !text-primary rounded-sm"
       }`}
       href={`/market/${nft}`}
@@ -81,9 +91,44 @@ export default function TableRow({
         </div>
       </div>
 
-      <div className="basis-[5%] text-center">{index}</div>
       <div
-        className="basis-[30%] cursor-pointer text-center"
+        className={`basis-[5%] text-center ${
+          viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+        }`}
+      >
+        {index}
+      </div>
+      <Image
+        alt="nft"
+        src={img}
+        width={100}
+        height={100}
+        className={`w-full  ${
+          viewMode === 1 || viewMode === 2
+            ? `${viewMode === 1 ? "h-[340px]" : "h-[240px]"} visible`
+            : "hidden"
+        }`}
+      />
+      <div
+        className={`${
+          viewMode === 1 || viewMode === 2 ? "visible" : "hidden"
+        } flex flex-row justify-between w-full`}
+      >
+        <div>{nft}</div>
+        <div>{rarity}</div>
+      </div>
+      <div
+        className={`${
+          viewMode === 1 || viewMode === 2 ? "visible" : "hidden"
+        } flex flex-row justify-between w-full`}
+      >
+        <div>{price}</div>
+        <div>{last_sale}</div>
+      </div>
+      <div
+        className={`${
+          viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+        } basis-[30%] cursor-pointer flex justify-center gap-2 text-center`}
         onMouseEnter={() => {
           setIsDetailShowing(true);
         }}
@@ -91,14 +136,59 @@ export default function TableRow({
           setIsDetailShowing(false);
         }}
       >
-        {nft}
+        <Image
+          alt="nft"
+          src={img}
+          width={100}
+          height={100}
+          className={`w-8 h-8 ${
+            viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+          }`}
+        />
+        <h4>{nft}</h4>
       </div>
-      <div className="basis-[10%] text-center max-lg:hidden">{rarity}</div>
-      <div className="basis-[10%] text-center max-lg:hidden">{price}</div>
-      <div className="basis-[10%] text-center">{top_offer}</div>
-      <div className="basis-[10%] text-center max-lg:hidden">{last_sale}</div>
-      <div className="basis-[15%] text-center max-lg:hidden">{owner}</div>
-      <div className="basis-[10%] text-center max-lg:hidden">{listed}</div>
+      <div
+        className={`${
+          viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+        } basis-[10%] text-center max-lg:hidden`}
+      >
+        {rarity}
+      </div>
+      <div
+        className={`${
+          viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+        } basis-[10%] text-center max-lg:hidden`}
+      >
+        {price}
+      </div>
+      <div
+        className={`${
+          viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+        } basis-[10%] text-center`}
+      >
+        {top_offer}
+      </div>
+      <div
+        className={` ${
+          viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+        } basis-[10%] text-center max-lg:hidden`}
+      >
+        {last_sale}
+      </div>
+      <div
+        className={`${
+          viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+        } basis-[15%] text-center max-lg:hidden`}
+      >
+        {owner}
+      </div>
+      <div
+        className={`${
+          viewMode === 1 || viewMode === 2 ? "hidden" : "visible"
+        } basis-[10%] text-center max-lg:hidden`}
+      >
+        {listed}
+      </div>
     </Link>
   );
 }
