@@ -255,7 +255,6 @@ const GridLayer = dynamic(
 
 import "leaflet/dist/leaflet.css";
 import "leaflet-minimap/dist/Control.MiniMap.min.css";
-import Navbar from "@/layout/Navbar";
 import { HamburgerIcon } from "@/components/svgs/HamburgerIcon";
 
 const Map: React.FC = () => {

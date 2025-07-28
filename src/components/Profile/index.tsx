@@ -7,9 +7,9 @@ export default function Profile() {
   const [name, setName] = useState<string>("");
   const [bio, setBio] = useState<string>("");
   const [url, setURL] = useState<string>("");
-  const [email, setEmail] = useState<string>("");
-  const [avatar, setAvatar] = useState<string>("");
-  const [banner, setBanner] = useState<string>("");
+  const [email] = useState<string>("");
+  const [avatar] = useState<string>("");
+  // const [banner, setBanner] = useState<string>("");
 
   const handleSubmit = async () => {
     const data = await updateProfile({
