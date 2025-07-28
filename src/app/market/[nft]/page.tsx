@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { CommunityIcon } from "@/components/svgs/CommunityIcon";
 import { CopyIcon } from "@/components/svgs/CopyIcon";
 import { LikeIcon } from "@/components/svgs/LikeIcon";
@@ -8,13 +9,13 @@ import { PlusIcon } from "@/components/svgs/PlusIcon";
 import { TipIcon } from "@/components/svgs/TipIcon";
 import Image from "next/image";
 
-type Props = {
-  params: {
-    nft: string;
-  };
-};
+// type Props = {
+//   params: {
+//     nft: string;
+//   };
+// };
 
-export default async function MarketPage({ params }: Props) {
+export default async function MarketPage({ params }: any) {
   const { nft } = await params;
   return (
     <div className="w-full flex flex-row justify-between bg-primary gap-4 items-start p-12">
