@@ -1,6 +1,9 @@
 "use client";
 import { useEffect, useRef, useState } from "react";
 import Table from "@/components/Table";
+import { MideGridIcon } from "@/components/svgs/MidGridIcon";
+import { HighGridIcon } from "@/components/svgs/HighGridIcon";
+import { LowGridIcon } from "@/components/svgs/LowGridIcon";
 
 interface TabState {
   currentTab: number;
@@ -150,17 +153,7 @@ export default function Market() {
                     setViewMode(1);
                   }}
                 >
-                  <svg
-                    aria-label="Grid View"
-                    className="fill-current hover:text-white text-secondary"
-                    height="20"
-                    role="img"
-                    viewBox="0 -960 960 960"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M120-520v-320h320v320H120Zm0 400v-320h320v320H120Zm400-400v-320h320v320H520Zm0 400v-320h320v320H520ZM200-600h160v-160H200v160Zm400 0h160v-160H600v160Zm0 400h160v-160H600v160Zm-400 0h160v-160H200v160Zm400-400Zm0 240Zm-240 0Zm0-240Z"></path>
-                  </svg>
+                  <MideGridIcon classname="fill-current hover:text-white text-secondary" />
                 </button>
                 <button
                   className="w-8 h-8"
@@ -168,18 +161,7 @@ export default function Market() {
                     setViewMode(2);
                   }}
                 >
-                  <svg
-                    aria-label="Grid On"
-                    className="fill-current hover:text-white text-secondary"
-                    fill="currentColor"
-                    height="20"
-                    role="img"
-                    viewBox="0 -960 960 960"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Zm0-80h133v-133H200v133Zm213 0h134v-133H413v133Zm214 0h133v-133H627v133ZM200-413h133v-134H200v134Zm213 0h134v-134H413v134Zm214 0h133v-134H627v134ZM200-627h133v-133H200v133Zm213 0h134v-133H413v133Zm214 0h133v-133H627v133Z"></path>
-                  </svg>
+                  <HighGridIcon classname="fill-current hover:text-white text-secondary" />
                 </button>
                 {/* <button
                   className="w-8 h-8"
@@ -206,18 +188,7 @@ export default function Market() {
                     setViewMode(4);
                   }}
                 >
-                  <svg
-                    aria-label="Table Rows"
-                    className="fill-current"
-                    fill="currentColor"
-                    height="20"
-                    role="img"
-                    viewBox="0 -960 960 960"
-                    width="20"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <path d="M760-200v-120H200v120h560Zm0-200v-160H200v160h560Zm0-240v-120H200v120h560ZM200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v560q0 33-23.5 56.5T760-120H200Z"></path>
-                  </svg>
+                  <LowGridIcon classname="fill-current" />
                 </button>
                 {/* <button
                   className="w-8 h-8 hover:text-white text-secondary"

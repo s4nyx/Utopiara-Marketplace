@@ -1,5 +1,7 @@
 import Glide from "@glidejs/glide";
 import React, { useEffect } from "react";
+import { ArrowLeft } from "../svgs/ArrowLeft";
+import { ArrowRight } from "../svgs/ArrowRight";
 
 const images = [
   "/images/1.webp",
@@ -72,21 +74,7 @@ export default function Carousel() {
               data-glide-dir="<"
               aria-label="prev slide"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-8 w-8 text-4xl "
-              >
-                <title>prev slide</title>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6.75 15.75L3 12m0 0l3.75-3.75M3 12h18"
-                />
-              </svg>
+              <ArrowLeft classname="h-8 w-8 text-4xl " />
             </button>
 
             <button
@@ -94,21 +82,7 @@ export default function Carousel() {
               data-glide-dir=">"
               aria-label="next slide"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth="1.5"
-                stroke="currentColor"
-                className="h-8 w-8"
-              >
-                <title>next slide</title>
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17.25 8.25L21 12m0 0l-3.75 3.75M21 12H3"
-                />
-              </svg>
+              <ArrowRight classname="h-8 w-8" />
             </button>
           </div>
           <span className="  z-10 text-white opacity-100 max-lg:text-xl lg:text-[36px]">
