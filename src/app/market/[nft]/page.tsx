@@ -14,7 +14,8 @@ type Props = {
   };
 };
 
-export default function MarketPage({ params: { nft = "" } }: Props) {
+export default async function MarketPage({ params }: Props) {
+  const { nft } = await params;
   return (
     <div className="w-full flex flex-row justify-between bg-primary gap-4 items-start p-12">
       <Image
@@ -111,7 +112,7 @@ export default function MarketPage({ params: { nft = "" } }: Props) {
             <details className="group p-4">
               <summary className="relative flex cursor-pointer list-none gap-4 pr-8 font-medium text-white transition-colors duration-300 focus:text-secondary focus-visible:outline-none group-hover:text-secondary  [&::-webkit-details-marker]:hidden">
                 <PCIcon classname="h-6 w-6 shrink-0 stroke-secondary " /> About
-                <PlusIcon classname="absolute right-0 top-1 h-4 w-4 shrink-0 stroke-white transition duration-300 group-open:rotate-45" />{" "}
+                <PlusIcon classname="absolute right-0 top-1 h-4 w-4 shrink-0 stroke-white transition duration-300 group-open:rotate-45" />
               </summary>
               <p className="mt-4 text-zinc-400">
                 Every component is fully responsive and implemented to look
