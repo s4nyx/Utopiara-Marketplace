@@ -1,9 +1,9 @@
+/* eslint-disable */
 "use client";
 import dynamic from "next/dynamic";
 import { useMemo, useState } from "react";
-import L, { LatLngBoundsExpression, Point } from "leaflet";
+import { LatLngBoundsExpression } from "leaflet";
 
-// Dynamically import MapContainer, TileLayer, Marker, Popup, and Control with SSR disabled
 const MapContainer = dynamic(
   () => import("react-leaflet").then((mod) => mod.MapContainer),
   { ssr: false }
@@ -20,7 +20,6 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), {
   ssr: false,
 });
 
-// Dynamically import MiniMap
 const MiniMap = dynamic(
   () =>
     import("react-leaflet").then((mod) => {
@@ -28,25 +27,26 @@ const MiniMap = dynamic(
       let index = 0;
       return function MiniMapComponent() {
         const map = useMap();
-        // Load Leaflet.MiniMap dynamically on the client side
         import("leaflet-minimap").then((MiniMapModule) => {
-          const MiniMapLayer = L.tileLayer("/geo/{z}/{x}/{y}.png", {
-            attribution:
-              '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-            tms: true,
-            noWrap: true,
+          import("leaflet").then((L) => {
+            const MiniMapLayer = L.tileLayer("/geo/{z}/{x}/{y}.png", {
+              attribution:
+                '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+              tms: true,
+              noWrap: true,
+            });
+            index = index + 1;
+            const miniMap = new MiniMapModule.default(MiniMapLayer, {
+              toggleDisplay: true,
+              position: "topleft",
+              minimized: false,
+              width: 200,
+              showText: "Utopiara Mini Map",
+              height: 250,
+              zoomLevelOffset: -5,
+            });
+            if (index === 1) map.addControl(miniMap);
           });
-          index = index + 1;
-          const miniMap = new MiniMapModule.default(MiniMapLayer, {
-            toggleDisplay: true,
-            position: "topleft",
-            minimized: false,
-            width: 200,
-            showText: "Utopiara Mini Map",
-            height: 250,
-            zoomLevelOffset: -5,
-          });
-          if (index === 1) map.addControl(miniMap);
         });
         return null;
       };
@@ -129,75 +129,76 @@ const mockMark: [number, number][] = [
 
 const GridLayer = dynamic(
   () =>
-    import("react-leaflet").then((mod) => {
-      const { useMap } = mod;
-      return function GridLayerComponent({
-        onCellClick,
-      }: {
-        onCellClick: (cell: { id: string; center: [number, number] }) => void;
-      }) {
-        const map = useMap();
-        const center: [number, number] = [-50, -60];
-        const gridSize = 50;
-        const cellSizePixels = 30;
+    import("leaflet").then((L) =>
+      import("react-leaflet").then((mod) => {
+        const { useMap } = mod;
+        return function GridLayerComponent({
+          onCellClick,
+        }: {
+          onCellClick: (cell: { id: string; center: [number, number] }) => void;
+        }) {
+          const map = useMap();
+          const center: [number, number] = [-50, -60];
+          const gridSize = 50;
+          const cellSizePixels = 30;
 
-        const gridCells = useMemo(() => {
-          const cells = [];
-          const zoom = map.getZoom();
-          const centerLatLng = L.latLng(center);
-          const centerPixel = map.project(centerLatLng, zoom);
+          const gridCells = useMemo(() => {
+            const cells = [];
+            const zoom = map.getZoom();
+            const centerLatLng = L.latLng(center);
+            const centerPixel = map.project(centerLatLng, zoom);
 
-          const totalSizePixels = gridSize * cellSizePixels;
-          const startX = centerPixel.x - totalSizePixels / 2;
-          const startY = centerPixel.y - totalSizePixels / 2;
+            const totalSizePixels = gridSize * cellSizePixels;
+            const startX = centerPixel.x - totalSizePixels / 2;
+            const startY = centerPixel.y - totalSizePixels / 2;
 
-          for (let i = 0; i < gridSize; i++) {
-            //i:row j:col
-            for (let j = 0; j < 1.35 * gridSize; j++) {
-              const southWestPixel = new Point(
-                startX + j * cellSizePixels,
-                startY + (i + 1) * cellSizePixels
-              );
-              const northEastPixel = new Point(
-                startX + (j + 1) * cellSizePixels,
-                startY + i * cellSizePixels
-              );
+            for (let i = 0; i < gridSize; i++) {
+              //i:row j:col
+              for (let j = 0; j < 1.35 * gridSize; j++) {
+                const southWestPixel = new L.Point(
+                  startX + j * cellSizePixels,
+                  startY + (i + 1) * cellSizePixels
+                );
+                const northEastPixel = new L.Point(
+                  startX + (j + 1) * cellSizePixels,
+                  startY + i * cellSizePixels
+                );
 
-              const southWest = map.unproject(southWestPixel, zoom);
-              const northEast = map.unproject(northEastPixel, zoom);
-              const bounds: LatLngBoundsExpression = [
-                [southWest.lat, southWest.lng],
-                [northEast.lat, northEast.lng],
-              ];
+                const southWest = map.unproject(southWestPixel, zoom);
+                const northEast = map.unproject(northEastPixel, zoom);
+                const bounds: LatLngBoundsExpression = [
+                  [southWest.lat, southWest.lng],
+                  [northEast.lat, northEast.lng],
+                ];
 
-              const centerLatLng = [
-                (southWest.lat + northEast.lat) / 2,
-                (southWest.lng + northEast.lng) / 2,
-              ] as [number, number];
+                const centerLatLng = [
+                  (southWest.lat + northEast.lat) / 2,
+                  (southWest.lng + northEast.lng) / 2,
+                ] as [number, number];
 
-              const isMark = mockMark.some(
-                ([row, col]) => row === i && col === j
-              );
+                const isMark = mockMark.some(
+                  ([row, col]) => row === i && col === j
+                );
 
-              cells.push({
-                bounds,
-                id: `cell-${i}-${j}`,
-                center: centerLatLng,
-                isMark,
-              });
+                cells.push({
+                  bounds,
+                  id: `cell-${i}-${j}`,
+                  center: centerLatLng,
+                  isMark,
+                });
+              }
             }
-          }
-          return cells;
-        }, [map, center, gridSize, cellSizePixels]);
+            return cells;
+          }, [map, center, gridSize, cellSizePixels]);
 
-        const zoom = map.getZoom();
-        const baseIconSize = 20;
-        const iconSize = baseIconSize * (zoom / 3);
+          const zoom = map.getZoom();
+          const baseIconSize = 20;
+          const iconSize = baseIconSize * (zoom / 3);
 
-        return (
-          <>
-            <style>
-              {`
+          return (
+            <>
+              <style>
+                {`
                 .custom-marker div {
                   background-color: red;
                   width: ${iconSize}px;
@@ -208,48 +209,49 @@ const GridLayer = dynamic(
                   background-color: grey;
                 }
               `}
-            </style>
-            {gridCells.map((cell) => (
-              <mod.Rectangle
-                key={cell.id}
-                bounds={cell.bounds}
-                pathOptions={{
-                  color: "#B3B3B3BB",
-                  weight: 1,
-                  fillOpacity: 0.1,
-                }}
-                eventHandlers={{
-                  click: () => {
-                    if (cell.isMark) onCellClick(cell);
-                  },
-                }}
-              >
-                {cell.isMark && (
-                  <Marker
-                    eventHandlers={{
-                      click: () => {
-                        if (cell.isMark) onCellClick(cell);
-                      },
-                    }}
-                    position={[cell.center[0], cell.center[1]]}
-                    icon={L.divIcon({
-                      className: "custom-marker",
-                      html: `<div></div>`,
-                      iconSize: [iconSize, iconSize],
-                      iconAnchor: [10, 10],
-                    })}
-                  >
-                    <Popup>A marker at center.</Popup>
-                  </Marker>
-                )}
+              </style>
+              {gridCells.map((cell) => (
+                <mod.Rectangle
+                  key={cell.id}
+                  bounds={cell.bounds}
+                  pathOptions={{
+                    color: "#B3B3B3BB",
+                    weight: 1,
+                    fillOpacity: 0.1,
+                  }}
+                  eventHandlers={{
+                    click: () => {
+                      if (cell.isMark) onCellClick(cell);
+                    },
+                  }}
+                >
+                  {cell.isMark && (
+                    <Marker
+                      eventHandlers={{
+                        click: () => {
+                          if (cell.isMark) onCellClick(cell);
+                        },
+                      }}
+                      position={[cell.center[0], cell.center[1]]}
+                      icon={L.divIcon({
+                        className: "custom-marker",
+                        html: `<div></div>`,
+                        iconSize: [iconSize, iconSize],
+                        iconAnchor: [10, 10],
+                      })}
+                    >
+                      <Popup>A marker at center.</Popup>
+                    </Marker>
+                  )}
 
-                <Popup>Cell {cell.id}</Popup>
-              </mod.Rectangle>
-            ))}
-          </>
-        );
-      };
-    }),
+                  <Popup>Cell {cell.id}</Popup>
+                </mod.Rectangle>
+              ))}
+            </>
+          );
+        };
+      })
+    ),
   { ssr: false }
 );
 
