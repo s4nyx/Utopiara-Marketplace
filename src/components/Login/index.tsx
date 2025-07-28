@@ -4,6 +4,8 @@ import { login } from "@/lib/api/auth";
 import Checkbox from "../Checkbox";
 import React, { useEffect, useRef, useState } from "react";
 import { ReCaptchaProvider, ReCaptcha } from "next-recaptcha-v3";
+import { ExitIcon } from "../svgs/ExitIcon";
+import { EyeIcon } from "../svgs/EyeIcon";
 
 interface LoginProps {
   isShowing: boolean;
@@ -134,26 +136,7 @@ export default function Login({
               aria-label="close dialog"
             >
               <span className="relative only:-mx-5">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  role="graphics-symbol"
-                  aria-labelledby="title-79 desc-79"
-                >
-                  <title id="title-79">Icon title</title>
-                  <desc id="desc-79">
-                    A more detailed description of the icon
-                  </desc>
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M6 18L18 6M6 6l12 12"
-                  />
-                </svg>
+                <ExitIcon className="h-5 w-5" />
               </span>
             </button>
           </header>
@@ -198,20 +181,7 @@ export default function Login({
                 >
                   Your password
                 </label>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="absolute right-4 top-2.5 h-5 w-5 cursor-pointer stroke-slate-400 peer-disabled:cursor-not-allowed"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"
-                  />
-                </svg>
+                <EyeIcon className="absolute right-4 top-2.5 h-5 w-5 cursor-pointer stroke-slate-400 peer-disabled:cursor-not-allowed" />
                 <small className="absolute flex w-full justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500">
                   <span>Type your password</span>
                   <div className="cursor-pointer hover:text-secondary">

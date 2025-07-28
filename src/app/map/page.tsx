@@ -74,20 +74,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isOpen, cell, onClose }) => {
             onClick={onClose}
             className="text-gray-500 hover:text-gray-700 focus:outline-none"
           >
-            <svg
-              className="w-6 h-6"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            </svg>
+            <HamburgerIcon classname="w-6 h-6" />
           </button>
         </div>
         {cell ? (
@@ -269,6 +256,7 @@ const GridLayer = dynamic(
 import "leaflet/dist/leaflet.css";
 import "leaflet-minimap/dist/Control.MiniMap.min.css";
 import Navbar from "@/layout/Navbar";
+import { HamburgerIcon } from "@/components/svgs/HamburgerIcon";
 
 const Map: React.FC = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
