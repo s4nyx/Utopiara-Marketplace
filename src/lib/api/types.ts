@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 export interface LoginCredentials {
   email: string;
   password: string;
@@ -17,6 +18,7 @@ export interface AuthResponse {
     email: string;
     name?: string;
   };
+  data: any;
 }
 
 export interface ApiError {
