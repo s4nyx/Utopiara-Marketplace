@@ -26,10 +26,12 @@ export interface ApiError {
 }
 
 export interface ProfileData {
+  firstName: string;
+  lastName: string;
   username: string;
   email: string;
-  userAvatar?: string;
-  userBanner?: string;
+  userAvatar?: File | null;
+  userBanner?: File | null;
   bio?: string;
   walletAddresses?: string[];
   urls?: string[];

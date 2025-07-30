@@ -1,8 +1,9 @@
 interface Props {
   className: string;
+  onClick?: () => void;
 }
 
-export const ExitIcon = ({ className }: Props) => (
+export const ExitIcon = ({ className, onClick }: Props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     className={className}
@@ -12,6 +13,7 @@ export const ExitIcon = ({ className }: Props) => (
     strokeWidth="1.5"
     role="graphics-symbol"
     aria-labelledby="title-79 desc-79"
+    onClick={onClick}
   >
     <path
       strokeLinecap="round"
