@@ -5,7 +5,6 @@ import {
   AuthResponse,
   ApiError,
   ProfileResponse,
-  ProfileData,
 } from "./types";
 
 export const login = async (
@@ -41,12 +40,19 @@ export const register = async (
 };
 
 export const updateProfile = async (
-  profileData: ProfileData
+  profileData: FormData
 ): Promise<ProfileResponse> => {
   try {
+    const token = localStorage.getItem("token");
     const response = await axiosInstance.put<ProfileResponse>(
       "/auth/profile",
-      profileData
+      profileData,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      }
     );
     return response.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -55,4 +61,36 @@ export const updateProfile = async (
       (error.response?.data as ApiError) || { message: "Profile update failed" }
     );
   }
+};
+
+export const forgotPassword = async (
+  email: string
+): Promise<{ message: string }> => {
+  const response = await axiosInstance.post(`/auth/forgot-password`, {
+    email,
+  });
+
+  const data = await response.data;
+  if (!response.data) throw new Error(data.message || "Something went wrong");
+
+  return data;
+};
+
+// services/auth.ts
+export const resetPassword = async (
+  token: string,
+  password: string
+): Promise<{ message: string }> => {
+  const response = await fetch(`/auth/reset-password`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ token, password }),
+  });
+
+  const data = await response.json();
+  if (!response.ok) throw new Error(data.message || "Something went wrong");
+
+  return data;
 };
