@@ -12,6 +12,11 @@ export interface RegisterData {
   lastName: string;
 }
 
+export interface VerifyData {
+  email: string;
+  code: string;
+}
+
 export interface AuthResponse {
   token: string;
   user: {

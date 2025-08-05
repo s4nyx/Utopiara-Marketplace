@@ -4,6 +4,7 @@ import Table from "@/components/Table";
 import { MideGridIcon } from "@/components/svgs/MidGridIcon";
 import { HighGridIcon } from "@/components/svgs/HighGridIcon";
 import { LowGridIcon } from "@/components/svgs/LowGridIcon";
+import NFTLandTable from "@/components/NFTLandTable";
 
 interface TabState {
   currentTab: number;
@@ -76,7 +77,7 @@ export default function Market() {
             NFT Items
           </div>
           <div className="w-full flex flex-col items-start z-30 ">
-            <div className="w-full flex justify-between items-center">
+            <div className="w-full flex lg:flex-row max-lg:flex-col justify-between items-center">
               <ul
                 className="flex items-center w-full z-30  gap-2 border-b-[1px] border-zinc-500 pb-4"
                 role="tablist"
@@ -84,7 +85,7 @@ export default function Market() {
               >
                 <li className="" role="presentation">
                   <button
-                    className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded px-6 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
+                    className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded lg:px-6 max-lg:px-2 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
                       tabSelected.currentTab === 1
                         ? "bg-secondary text-white hover:bg-secondary focus:bg-secondary focus:text-primary disabled:bg-emerald-300"
                         : "w-full justify-self-center stroke-slate-700 text-white hover:bg-secondary  hover:text-white focus:bg-emerald-50 focus:stroke-secondary focus:text-primary "
@@ -105,7 +106,7 @@ export default function Market() {
                 </li>
                 <li className="" role="presentation">
                   <button
-                    className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded px-6 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
+                    className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded lg:px-6 max-lg:px-2 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
                       tabSelected.currentTab === 2
                         ? "bg-secondary text-white hover:bg-secondary focus:bg-secondary focus:text-primary disabled:bg-emerald-300"
                         : "w-full justify-self-center stroke-slate-700 text-white hover:bg-secondary  hover:text-white focus:bg-emerald-50 focus:stroke-secondary focus:text-primary "
@@ -121,12 +122,12 @@ export default function Market() {
                       setTabSelected({ ...tabSelected, currentTab: 2 })
                     }
                   >
-                    <span>Top</span>
+                    <span>NFTLand</span>
                   </button>
                 </li>
                 <li className="" role="presentation">
                   <button
-                    className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded px-6 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
+                    className={`inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded lg:px-6 max-lg:px-2 text-xl font-medium tracking-wide transition duration-300 focus-visible:outline-none disabled:cursor-not-allowed ${
                       tabSelected.currentTab === 3
                         ? "bg-secondary text-white hover:bg-secondary focus:bg-secondary focus:text-primary disabled:bg-emerald-300"
                         : "w-full justify-self-center stroke-slate-700 text-white hover:bg-secondary  hover:text-white focus:bg-emerald-50 focus:stroke-secondary focus:text-primary "
@@ -234,7 +235,7 @@ export default function Market() {
                 aria-labelledby="tab-label-2e"
                 tabIndex={-1}
               >
-                <Table viewMode={viewMode} />
+                <NFTLandTable viewMode={viewMode} />
               </div>
               <div
                 className={`px-6 py-4 ${

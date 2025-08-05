@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Image from "next/image";
 import Link from "next/link";
 import React, { useState } from "react";
@@ -13,6 +14,7 @@ interface nftProps {
   owner: string;
   listed: string;
   viewMode: number;
+  tokenId: string;
 }
 
 export default function TableRow({
@@ -26,6 +28,7 @@ export default function TableRow({
   viewMode,
   owner,
   listed,
+  tokenId,
 }: nftProps) {
   const [isDetailShowing, setIsDetailShowing] = useState(false);
 
@@ -42,7 +45,7 @@ export default function TableRow({
       } items-center transition-colors duration-500 justify-between text-xl text-white ${
         isDetailShowing && "bg-secondary !text-primary rounded-sm"
       }`}
-      href={`/market/${nft}`}
+      href={`/market/${tokenId}`}
     >
       <div
         className={`absolute transition-all duration-500 -bottom-[220px] lg:left-24 w-[450px]  rounded-lg p-2 flex flex-col items-start justify-between  bg-fifth text-secondary z-10  ${
@@ -100,7 +103,7 @@ export default function TableRow({
       >
         {index}
       </div>
-      <Image
+      <img
         alt="nft"
         src={img}
         width={100}

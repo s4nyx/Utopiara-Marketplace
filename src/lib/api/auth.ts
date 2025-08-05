@@ -5,6 +5,7 @@ import {
   AuthResponse,
   ApiError,
   ProfileResponse,
+  VerifyData,
 } from "./types";
 
 export const login = async (
@@ -30,7 +31,24 @@ export const register = async (
       "/auth/register",
       userData
     );
-    return response.data?.data;
+    return response.data;
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  } catch (error: any) {
+    throw (
+      (error.response?.data as ApiError) || { message: "Registration failed" }
+    );
+  }
+};
+
+export const verifyEmail = async (
+  verifyData: VerifyData
+): Promise<AuthResponse> => {
+  try {
+    const response = await axiosInstance.post<AuthResponse>(
+      "/auth/verify-email",
+      verifyData
+    );
+    return response.data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     throw (
@@ -81,16 +99,13 @@ export const resetPassword = async (
   token: string,
   password: string
 ): Promise<{ message: string }> => {
-  const response = await fetch(`/auth/reset-password`, {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ token, password }),
+  const response = await axiosInstance.post(`/auth/reset-password`, {
+    token,
+    password,
   });
 
-  const data = await response.json();
-  if (!response.ok) throw new Error(data.message || "Something went wrong");
+  const data = await response.data;
+  if (!response.data) throw new Error(data.message || "Something went wrong");
 
   return data;
 };
