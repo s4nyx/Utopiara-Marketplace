@@ -28,19 +28,22 @@ export default function TableRow({
   listed,
 }: nftProps) {
   const [isDetailShowing, setIsDetailShowing] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   return (
     <Link
-      className={`mt-4 flex relative  ${
+      className={`mt-4 flex relative overflow-hidden ${
         viewMode === 1 || viewMode === 2
           ? `flex-col ${
               viewMode === 1
                 ? "lg:w-[20%] max-lg:w-[100%]"
                 : "lg:w-[15%] max-lg:w-[80%] "
             } rounded-2xl bg-fifth p-2`
-          : "flex-row"
+          : "flex-row h-[60px] w-full"
       } items-center justify-between text-xl text-white transition-transform duration-300 hover:-translate-y-1`}
       href={`/market/${nft}`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div
         className={`absolute transition-all duration-500 -bottom-[220px] lg:left-24 w-[450px]  rounded-lg p-2 flex flex-col items-start justify-between  bg-fifth text-secondary z-10  ${
@@ -188,6 +191,25 @@ export default function TableRow({
         } basis-[10%] text-center max-lg:hidden`}
       >
         {listed}
+      </div>
+
+      {/* Buy Now Button - Inside Link */}
+      <div
+        className={`absolute bottom-0 left-0 right-0 w-full transition-all duration-300 ease-in-out pointer-events-none ${
+          isHovered ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
+        }`}
+      >
+        <button
+          className="w-full bg-[#01eaf9] hover:bg-[#03ddec] text-white font-bold py-3 px-4 rounded-b-2xl transition-colors duration-200 pointer-events-auto cursor-pointer"
+          onClick={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            // Add your buy now logic here
+            console.log("Buy now clicked for:", nft);
+          }}
+        >
+          Buy Now
+        </button>
       </div>
     </Link>
   );
