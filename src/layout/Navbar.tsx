@@ -6,6 +6,7 @@ import React, { useState } from "react";
 import ReactDOM from "react-dom";
 import Register from "@/components/Register";
 import Image from "next/image";
+import { ConnectButton } from "@rainbow-me/rainbowkit";
 
 export default function Navbar() {
   const [isShowing, setIsShowing] = useState(false);
@@ -123,6 +124,11 @@ export default function Navbar() {
                 >
                   CONTACT
                 </Link>
+              </li>
+              <li role="none" className="flex items-stretch">
+                <div className="flex items-center  py-4 lg:px-8">
+                  <ConnectButton />
+                </div>
               </li>
               {/* <li role="none" className="flex items-stretch">
                 <Link

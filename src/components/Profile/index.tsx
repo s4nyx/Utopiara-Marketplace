@@ -3,7 +3,7 @@
 import { updateProfile } from "@/lib/api/auth";
 import React, { useEffect, useState } from "react";
 import { EditIcon } from "../svgs/EditIcon";
-import { ConnectButton } from "@rainbow-me/rainbowkit";
+// import { ConnectButton } from "@rainbow-me/rainbowkit";
 import { useAccount, useDisconnect } from "wagmi";
 import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { PlusIcon } from "../svgs/PlusIcon";
@@ -153,7 +153,7 @@ export default function Profile() {
         <h1 className="text-secondary text-3xl mt-4">Edit Profile</h1>
         <div className="w-full flex justify-end">
           <div className="flex items-center gap-2">
-            <ConnectButton />
+            {/* <ConnectButton /> */}
             {isConnected && (
               <button
                 onClick={() => {
