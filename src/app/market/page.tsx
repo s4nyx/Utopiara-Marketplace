@@ -12,7 +12,7 @@ interface TabState {
 }
 
 export default function Market() {
-  const [viewMode, setViewMode] = useState<number>(4);
+  const [viewMode, setViewMode] = useState<number>(1);
 
   const [tabSelected, setTabSelected] = useState<TabState>({
     currentTab: 1,
@@ -154,7 +154,11 @@ export default function Market() {
                     setViewMode(1);
                   }}
                 >
-                  <MideGridIcon classname="fill-current hover:text-white text-secondary" />
+                  <MideGridIcon
+                    classname={`cursor-pointer fill-current hover:text-white  ${
+                      viewMode === 1 ? "text-white" : "text-secondary"
+                    }`}
+                  />
                 </button>
                 <button
                   className="w-8 h-8"
@@ -162,7 +166,11 @@ export default function Market() {
                     setViewMode(2);
                   }}
                 >
-                  <HighGridIcon classname="fill-current hover:text-white text-secondary" />
+                  <HighGridIcon
+                    classname={`cursor-pointer fill-current hover:text-white  ${
+                      viewMode === 2 ? "text-white" : "text-secondary"
+                    }`}
+                  />
                 </button>
                 {/* <button
                   className="w-8 h-8"
@@ -184,12 +192,16 @@ export default function Market() {
                   </svg>
                 </button> */}
                 <button
-                  className="w-8 h-8 hover:text-white text-secondary"
+                  className="w-8 h-8"
                   onClick={() => {
                     setViewMode(4);
                   }}
                 >
-                  <LowGridIcon classname="fill-current" />
+                  <LowGridIcon
+                    classname={`cursor-pointer fill-current hover:text-white  ${
+                      viewMode === 4 ? "text-white" : "text-secondary"
+                    }`}
+                  />
                 </button>
                 {/* <button
                   className="w-8 h-8 hover:text-white text-secondary"

@@ -37,11 +37,9 @@ export default function TableRow({
               viewMode === 1
                 ? "lg:w-[20%] max-lg:w-[100%]"
                 : "lg:w-[15%] max-lg:w-[80%] "
-            } rounded-2xl bg-fifth hover:bg-secondary hover:text-primary p-2`
+            } rounded-2xl bg-fifth p-2`
           : "flex-row"
-      } items-center transition-colors duration-500 justify-between text-xl text-white ${
-        isDetailShowing && "bg-secondary !text-primary rounded-sm"
-      }`}
+      } items-center justify-between text-xl text-white transition-transform duration-300 hover:-translate-y-1`}
       href={`/market/${nft}`}
     >
       <div
