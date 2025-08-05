@@ -194,23 +194,27 @@ export default function TableRow({
       </div>
 
       {/* Buy Now Button - Inside Link */}
-      <div
-        className={`absolute bottom-0 left-0 right-0 w-full transition-all duration-300 ease-in-out pointer-events-none ${
-          isHovered ? "translate-y-0 opacity-100" : "translate-y-full opacity-0"
-        }`}
-      >
-        <button
-          className="w-full bg-[#01eaf9] hover:bg-[#03ddec] text-white font-bold py-3 px-4 rounded-b-2xl transition-colors duration-200 pointer-events-auto cursor-pointer"
-          onClick={(e) => {
-            e.preventDefault();
-            e.stopPropagation();
-            // Add your buy now logic here
-            console.log("Buy now clicked for:", nft);
-          }}
+      {(viewMode === 1 || viewMode === 2) && (
+        <div
+          className={`absolute bottom-0 left-0 right-0 w-full transition-all duration-300 ease-in-out pointer-events-none ${
+            isHovered
+              ? "translate-y-0 opacity-100"
+              : "translate-y-full opacity-0"
+          }`}
         >
-          Buy Now
-        </button>
-      </div>
+          <button
+            className="w-full bg-[#01eaf9] hover:bg-[#03ddec] text-white font-bold py-3 px-4 rounded-b-2xl transition-colors duration-200 pointer-events-auto cursor-pointer"
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              // Add your buy now logic here
+              console.log("Buy now clicked for:", nft);
+            }}
+          >
+            Buy Now
+          </button>
+        </div>
+      )}
     </Link>
   );
 }
