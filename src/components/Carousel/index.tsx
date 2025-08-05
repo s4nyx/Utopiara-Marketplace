@@ -1,5 +1,5 @@
 import Glide from "@glidejs/glide";
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { ArrowLeft } from "../svgs/ArrowLeft";
 import { ArrowRight } from "../svgs/ArrowRight";
 
@@ -19,29 +19,34 @@ const images = [
 ];
 
 export default function Carousel() {
+  const glideRef = useRef<Glide | null>(null);
   useEffect(() => {
-    const slider = new Glide(".glide-04", {
+    glideRef.current = new Glide(".glide-04", {
       type: "carousel",
       focusAt: "center",
       perView: 7,
       autoplay: 3500,
       animationDuration: 700,
       gap: 24,
-
       breakpoints: {
-        1024: {
-          perView: 2,
-        },
-        640: {
-          perView: 3,
-        },
+        1024: { perView: 2 },
+        640: { perView: 3 },
       },
-    }).mount();
+    });
+
+    glideRef.current.mount();
 
     return () => {
-      slider.destroy();
+      glideRef.current?.destroy();
     };
   }, []);
+  const handlePrev = () => {
+    glideRef.current?.go("<");
+  };
+
+  const handleNext = () => {
+    glideRef.current?.go(">");
+  };
 
   return (
     <>
@@ -73,11 +78,13 @@ export default function Carousel() {
               className="inline-flex max-lg:h-12 max-lg:w-12 items-center justify-center rounded-full border border-slate-700 bg-secondary text-slate-700 transition duration-300 hover:border-slate-900 hover:text-white focus-visible:outline-none lg:h-12 lg:w-12"
               data-glide-dir="<"
               aria-label="prev slide"
+              onClick={handlePrev}
             >
               <ArrowLeft classname="h-8 w-8 text-4xl " />
             </button>
 
             <button
+              onClick={handleNext}
               className="inline-flex max-lg:h-12 max-lg:w-12 items-center justify-center rounded-full border border-slate-700 bg-secondary text-slate-700 transition duration-300 hover:border-slate-900 hover:text-white focus-visible:outline-none lg:h-12 lg:w-12"
               data-glide-dir=">"
               aria-label="next slide"

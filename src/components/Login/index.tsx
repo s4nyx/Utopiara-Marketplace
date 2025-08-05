@@ -23,6 +23,8 @@ export default function Login({
   const [token, setToken] = useState<string>("null");
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [isReset, setIsReset] = useState<boolean>(false);
+  const [isForget, setIsForget] = useState<boolean>(false);
+  const [forgetEmail, setForgetEmail] = useState<string>("");
 
   useEffect(() => {
     if (token) {
@@ -106,8 +108,9 @@ export default function Login({
   };
 
   const handleForgetPwd = () => {
-    forgotPassword(email);
+    forgotPassword(forgetEmail);
     setIsReset(true);
+    // setIsForget(false);
   };
 
   // const handleResetPwd = () => {
@@ -188,6 +191,67 @@ export default function Login({
               </button>
             </div>
           </div>
+        ) : isForget ? (
+          <div
+            ref={wrapperRef}
+            className="flex h-[35vh] min-w-[400px] w-[25vw] flex-col rounded-2xl gap-4 overflow-hidden  border-[1px] border-zinc-700 bg-primary p-6 pb-4 pt-10 text-white "
+            id="modal"
+            role="document"
+          >
+            {/*        <!-- Modal header --> */}
+            <header
+              id="header-4a"
+              className="flex items-center justify-between mb-10"
+            >
+              <h3 className=" flex-1 text-2xl text-center font-medium text-white">
+                Forget Password
+              </h3>
+              <button
+                onClick={() => setIsShowing(false)}
+                className="inline-flex h-10 items-center justify-center gap-2 justify-self-center whitespace-nowrap rounded-full px-5 text-sm font-medium tracking-wide text-secondary transition duration-300 hover:bg-none hover:text-secondary focus:bg-none focus:text-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:text-secondary disabled:shadow-none disabled:hover:bg-transparent"
+                aria-label="close dialog"
+              >
+                <span className="relative only:-mx-5">
+                  <ExitIcon className="h-5 w-5" />
+                </span>
+              </button>
+            </header>
+            {/*        <!-- Modal body --> */}
+            <div id="content-4a" className="flex flex-col justify-start">
+              <div className="flex flex-col  gap-6">
+                {/*                <!-- Input field --> */}
+                <div className="relative">
+                  <input
+                    id="id-b03"
+                    type="email"
+                    name="id-b03"
+                    value={forgetEmail}
+                    onChange={(e) => setForgetEmail(e.target.value)}
+                    placeholder="your email"
+                    className="peer relative h-10 w-full rounded border border-zinc-700 px-4 text-sm text-white placeholder-transparent outline-none transition-all autofill:bg-primary invalid:border-pink-500 invalid:text-pink-500 focus:border-secondary focus:outline-none invalid:focus:border-pink-500 disabled:cursor-not-allowed disabled:bg-slate-50 disabled:text-slate-400"
+                  />
+                  <label
+                    htmlFor="id-b03"
+                    className="absolute -top-2 left-2 z-[1] px-2 text-xs text-slate-400 transition-all before:absolute before:left-0 before:top-0 before:z-[-1] before:block before:h-full before:w-full before:bg-none before:transition-all peer-placeholder-shown:top-2.5 peer-placeholder-shown:text-sm peer-required:after:text-pink-500 peer-required:after:content-['\00a0*'] peer-invalid:text-pink-500 peer-focus:-top-4 peer-focus:text-xs peer-focus:text-secondary peer-invalid:peer-focus:text-pink-500 peer-disabled:cursor-not-allowed peer-disabled:text-slate-400 peer-disabled:before:bg-transparent"
+                  >
+                    Your email
+                  </label>
+                  <small className="absolute flex w-full justify-between px-4 py-1 text-xs text-slate-400 transition peer-invalid:text-pink-500">
+                    <span>Type your email address</span>
+                  </small>
+                </div>
+              </div>
+            </div>
+            {/*        <!-- Modal actions --> */}
+            <div className="flex justify-center gap-2 mt-8">
+              <button
+                onClick={handleForgetPwd}
+                className="inline-flex h-10 w-full items-center text-primary justify-center gap-2 whitespace-nowrap rounded bg-secondary px-5 text-sm font-medium tracking-wide transition duration-300 hover:bg-secondary focus:bg-secondary focus-visible:outline-none disabled:cursor-not-allowed disabled:border-secondary disabled:bg-secondary disabled:shadow-none"
+              >
+                <span>OK</span>
+              </button>
+            </div>
+          </div>
         ) : (
           <div
             ref={wrapperRef}
@@ -259,7 +323,7 @@ export default function Login({
                     <span>Type your password</span>
                     <div
                       className="cursor-pointer hover:text-secondary"
-                      onClick={handleForgetPwd}
+                      onClick={() => setIsForget(true)}
                     >
                       Forget your password?
                     </div>

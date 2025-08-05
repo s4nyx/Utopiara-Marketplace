@@ -4,21 +4,21 @@ import { NoteIcon } from "@/components/svgs/NoteIcon";
 import { PCIcon } from "@/components/svgs/PCIcon";
 import { PlusIcon } from "@/components/svgs/PlusIcon";
 import { TipIcon } from "@/components/svgs/TipIcon";
-import Image from "next/image";
+// import Image from "next/image";
 
 export default function faq() {
   return (
     <>
       <div className="mx-auto flex relative min-h-screen w-screen flex-col items-center justify-center bg-primary ">
-        <Image
+        {/* <Image
           alt="background"
           src="/webp/background/back_3.webp"
           width={1360}
           height={768}
-          className="fixed top-0 left-0 w-full h-screen object-cover"
-        />
+          className="lg:fixed max-lg:hidden top-0 left-0 w-full h-screen object-cover"
+        /> */}
         <div className="absolute left-0 top-0 w-full h-full bg-primary opacity-90"></div>
-        <div className="mb-8 z-30 text-6xl text-white drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
+        <div className="mb-8 z-0 text-6xl text-white drop-shadow-[0_0_10px_rgba(1,234,249,0.8)]">
           FAQ
         </div>
         <section className="lg:w-1/2 z-30 max-lg:w-[90%] divide-y divide-slate-200 rounded bg-fourth">
