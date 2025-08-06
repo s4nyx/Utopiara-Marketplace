@@ -37,7 +37,7 @@ export default function Table({ viewMode }: tableProps) {
             index={index}
             nft={"Utopiara"}
             viewMode={viewMode}
-            rarity="16ETH"
+            rarity="1.234"
             price="9%"
             img={"/images/1.webp"}
             top_offer="<0.01ETH"
