@@ -12,20 +12,20 @@ import "@rainbow-me/rainbowkit/styles.css";
 import { ethers } from "ethers";
 import { useAccount } from "wagmi";
 
-import { useConnectModal } from "@rainbow-me/rainbowkit";
+// import { useConnectModal } from "@rainbow-me/rainbowkit";
 import { CONTRACT } from "@/constant/contract";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 export default function Panel({ nft }: any) {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const { openConnectModal }: any = useConnectModal();
+  // const { openConnectModal }: any = useConnectModal();
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const { connector }: any = useAccount();
 
   const marketplaceContract = CONTRACT["marketplace"];
 
   const handleBuy = async () => {
-    openConnectModal();
+    // openConnectModal();
     const provider = await connector.getProvider();
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const ethersProvider = new ethers.BrowserProvider(provider as any);
@@ -35,7 +35,9 @@ export default function Panel({ nft }: any) {
       marketplaceContract.abi,
       signer
     );
+    console.log("here");
     const tx = await marketplace.buyNFT(nft);
+    console.log(tx);
   };
 
   return (
@@ -85,14 +87,14 @@ export default function Panel({ nft }: any) {
           </div>
           <div className="flex flex-row justify-between w-full items-center gap-2">
             <button
-              className="rounded-xl text-primary h-12 w-1/2 bg-secondary"
+              className="rounded-xl text-primary h-12 w-1/2 bg-secondary cursor-pointer"
               onClick={handleBuy}
             >
               Buy now
             </button>
 
             {/* <ConnectButton label="Buy now" /> */}
-            <button className="rounded-xl text-white h-12 w-1/2 bg-none border-zinc-600 border-[1px]">
+            <button className="rounded-xl text-white h-12 w-1/2 bg-none border-zinc-600 border-[1px] cursor-pointer">
               Make offer
             </button>
           </div>
