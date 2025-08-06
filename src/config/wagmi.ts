@@ -1,6 +1,6 @@
 "use client";
 import { getDefaultConfig } from "@rainbow-me/rainbowkit";
-import { bsc, mainnet } from "wagmi/chains";
+import { bsc, mainnet, sepolia } from "wagmi/chains";
 import {
   walletConnectWallet,
   binanceWallet,
@@ -13,7 +13,7 @@ import {
 export const config = getDefaultConfig({
   appName: "Utopiara NFT marketplace",
   projectId: "2f8ce20ec191a5151cf56bfe861bc27c",
-  chains: [mainnet, bsc],
+  chains: [mainnet, bsc, sepolia],
   multiInjectedProviderDiscovery: false,
   wallets: [
     {
